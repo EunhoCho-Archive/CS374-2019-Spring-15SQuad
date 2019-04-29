@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Firebase Hosting</title>
+    <link href="./main_page.css" rel="stylesheet" />
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/5.10.0/firebase-app.js"></script>
@@ -31,6 +32,7 @@
     </style>
   </head>
   <body>
+    <div class="gradiation"></div>
     <div id="message">
       <h2>Welcome</h2>
       <h1>Firebase Hosting Setup Complete</h1>
@@ -41,15 +43,15 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // The Firebase SDK is initialized and available here!
+        
+        //firebase.auth().onAuthStateChanged(user => { });
+        //firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        //firebase.messaging().requestPermission().then(() => { });
+        //firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        
+        // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
         try {
           let app = firebase.app();
@@ -61,5 +63,6 @@
         }
       });
     </script>
+    <!--<script src="./main_page.js"></script>-->
   </body>
 </html>
