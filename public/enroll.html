@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Bizmon-Enrollment</title>
-    <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
-    <link rel="stylesheet" type="text/css" href="semantic/components/icon.css">
-    <link rel="stylesheet" href="jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" />
+    <link rel="stylesheet" type="text/css" href="./semantic/dist/semantic.css">
     <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
-    <script src="semantic/semantic.js"></script>
-    <script src="includeHTML.js"></script>
+    <script src="./semantic/dist/semantic.js"></script>
+    <script src="./includeHTML.js"></script>
 </head>
 <body>
     <div class="ui container segment">
         <div class="ui form">
-            <h1><i class="sign-out"></i>Enrollment</h1>
+            <h1><i class="icon sign-out"></i>Enrollment</h1>
             <h3 class="yellow ui dividing header">Workday</h3>
             <div class="inline fields">
                 <div class="one wide field"></div>
@@ -38,23 +36,23 @@
                 <div class="one field">
                     <select class="ui fluid dropdown">
                         <option value="">Day</option>
-                        <option value="Mon">Mon</option>
-                        <option value="Tue">Tue</option>
-                        <option value="Wed">Wed</option>
-                        <option value="Thur">Thur</option>
-                        <option value="Fri">Fri</option>
-                        <option value="Sat">Sat</option>
-                        <option value="Sun">Sun</option>
+                        <option value="1">Mon</option>
+                        <option value="2">Tue</option>
+                        <option value="3">Wed</option>
+                        <option value="4">Thur</option>
+                        <option value="5">Fri</option>
+                        <option value="6">Sat</option>
+                        <option value="7">Sun</option>
                     </select>
                 </div>
                 <div class="three wide field"><input type="time"></div>
                 <div class="one small field"><strong>~</strong></div>
                 <div class="three wide field"><input type="time"></div>
                 <div class="one field">
-                    <button id="more_time" class="circular ui icon button"><i class="minus"></i></button>
+                    <button class="yellow circular ui icon button delete_time"><i class="icon minus"></i></button>
                 </div>
                 <div class="one field">
-                    <button id="more_time" class="circular ui icon button"><i class="plus"></i></button>
+                    <button id="more_time" class="yellow circular ui icon button"><i class="icon plus"></i></button>
                 </div>
             </div>
             <h3 class="yellow ui dividing header">Negotiation possible?</h3>
@@ -81,8 +79,6 @@
         </div>
     </div>
     <script>includeHTML();</script>
-    <script src="jquery/js/jquery-1.9.0.min.js"></script>
-    <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
-    <script src="enroll.js"></script>
+    <script src="./enroll.js"></script>
 </body>
 </html>
