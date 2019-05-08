@@ -9,6 +9,7 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
     <script src="./semantic/dist/semantic.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
     <script src="./includeHTML.js"></script>
 </head>
 <body>
@@ -31,50 +32,27 @@
                 </div>
             </div>
             <h3 class="yellow ui dividing header">Worktime</h3>
-            <div class="inline fields">
-                <div class="two wide field"></div>
-                <div class="one field">
-                    <select class="ui fluid dropdown">
-                        <option value="">Day</option>
-                        <option value="1">Mon</option>
-                        <option value="2">Tue</option>
-                        <option value="3">Wed</option>
-                        <option value="4">Thur</option>
-                        <option value="5">Fri</option>
-                        <option value="6">Sat</option>
-                        <option value="7">Sun</option>
-                    </select>
-                </div>
-                <div class="three wide field"><input type="time"></div>
-                <div class="one small field"><strong>~</strong></div>
-                <div class="three wide field"><input type="time"></div>
-                <div class="one field">
-                    <button class="yellow circular ui icon button delete_time"><i class="icon minus"></i></button>
-                </div>
-                <div class="one field">
-                    <button id="more_time" class="yellow circular ui icon button"><i class="icon plus"></i></button>
-                </div>
-            </div>
+            <div id="worktime"></div>
             <h3 class="yellow ui dividing header">Negotiation possible?</h3>
             <div class="inline fields">
                 <div class="two wide field"></div>
                 <div class="two wide field">
                     <div class="ui radio checkbox">
-                        <input type="radio" name="isPossible" value="true">
+                        <input type="radio" name="isPossible" id="isNegoTrue" value="true">
                         <label>Possible</label>
                     </div>
                 </div>
                 <div class="two wide field">
                     <div class="ui radio checkbox">
-                        <input type="radio" name="isPossible" value="false">
+                        <input type="radio" name="isPossible" id="isNegoFalse" value="false">
                         <label>Impossible</label>
                     </div>
                 </div>
             </div>
             <div class="ui buttons">
-                <button class="ui button">Cancel</button>
+                <button id="cancel", class="ui button">Cancel</button>
                 <div class="or"></div>
-                <button class="ui yellow button">Submit</button>
+                <button id="submit" class="ui yellow button">Submit</button>
             </div>
         </div>
     </div>
