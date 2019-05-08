@@ -3,38 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Bizmon-Enrollment</title>
-    <link rel="stylesheet" type="text/css" href="../semantic/semantic.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/components/icon.css">
-    <link rel="stylesheet" href="../jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" />
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
+    <link rel="stylesheet" type="text/css" href="semantic/components/icon.css">
+    <link rel="stylesheet" href="jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" />
     <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
-    <script src="../semantic/semantic.js"></script>
+    <script src="semantic/semantic.js"></script>
     <script src="includeHTML.js"></script>
 </head>
 <body>
-    <div class="ui container">
-        <i class="sign-out"></i>
-        <i class="plus circle"></i>
+    <div class="ui container segment">
         <div class="ui form">
-            <h1 class="ui dividing header"><i class="sign-out"></i>Enrollment</h1>
-            <h3 class="ui dividing header">Workday</h3>
+            <h1><i class="sign-out"></i>Enrollment</h1>
+            <h3 class="yellow ui dividing header">Workday</h3>
             <div class="inline fields">
                 <div class="one wide field"></div>
                 <h4 class="one wide field">Starts</h4>
                 <div class="three wide field">
-                    <input type="date" min="2019-05-08">
+                    <input id="start_date" type="date" min="2019-05-08">
                 </div>
             </div>
             <div class="inline fields">
                 <div class="one wide field"></div>
                 <h4 class="one wide field">Ends</h4>
                 <div class="three wide field">
-                    <input type="date" min="2019-05-08">
+                    <input id="end_date" type="date" min="2019-05-08">
                 </div>
             </div>
-            <h3 class="ui dividing header">Worktime</h3>
+            <h3 class="yellow ui dividing header">Worktime</h3>
             <div class="inline fields">
                 <div class="two wide field"></div>
                 <div class="one field">
@@ -49,52 +47,42 @@
                         <option value="Sun">Sun</option>
                     </select>
                 </div>
-                <div class="one wide field">
-                    <input type="text" placeholder="hh">
+                <div class="three wide field"><input type="time"></div>
+                <div class="one small field"><strong>~</strong></div>
+                <div class="three wide field"><input type="time"></div>
+                <div class="one field">
+                    <button id="more_time" class="circular ui icon button"><i class="minus"></i></button>
                 </div>
-                <div class="one small field">
-                    <strong>:</strong>
-                </div>
-                <div class="one wide field">
-                    <input type="text" placeholder="hh">
-                </div>
-                <div class="one small field">
-                    <strong>~</strong>
-                </div>
-                <div class="one wide field">
-                    <input type="text" placeholder="hh">
-                </div>
-                <div class="one small field">
-                    <strong>:</strong>
-                </div>
-                <div class="one wide field">
-                    <input type="text" placeholder="hh">
-                </div>
-                <div class="one wide field">
-                    <i class="plus circle"></i>
+                <div class="one field">
+                    <button id="more_time" class="circular ui icon button"><i class="plus"></i></button>
                 </div>
             </div>
-            <h3 class="ui dividing header">Negotiation possible?</h3>
+            <h3 class="yellow ui dividing header">Negotiation possible?</h3>
             <div class="inline fields">
                 <div class="two wide field"></div>
                 <div class="two wide field">
                     <div class="ui radio checkbox">
-                        <input type="radio" name="isPossible">
+                        <input type="radio" name="isPossible" value="true">
                         <label>Possible</label>
                     </div>
                 </div>
                 <div class="two wide field">
                     <div class="ui radio checkbox">
-                        <input type="radio" name="isPossible">
+                        <input type="radio" name="isPossible" value="false">
                         <label>Impossible</label>
                     </div>
                 </div>
             </div>
+            <div class="ui buttons">
+                <button class="ui button">Cancel</button>
+                <div class="or"></div>
+                <button class="ui yellow button">Submit</button>
+            </div>
         </div>
     </div>
     <script>includeHTML();</script>
-    <script src="../jquery/js/jquery-1.9.0.min.js"></script>
-    <script src="../jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="jquery/js/jquery-1.9.0.min.js"></script>
+    <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
     <script src="enroll.js"></script>
 </body>
 </html>
