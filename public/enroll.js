@@ -167,7 +167,7 @@ $(document).ready(function() {
             start: startDate,
             end: endDate,
             negotiation: isNego,
-            user: 'sampleuserid1',
+            user: 'Me',
         });
 
         for(let i = 0; i < worktimes.childNodes.length; i++){

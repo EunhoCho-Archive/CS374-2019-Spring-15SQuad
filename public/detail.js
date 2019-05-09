@@ -62,7 +62,7 @@ $(document).ready(function() {
             worktimes.appendChild(newtime);
         });
 
-        let userid = 'sampleuserid1';
+        let userid = 'Me';
         // let userid = sessionStorage.getItem('userid');
 
         let buttonarea = document.getElementById('offerButtons');

@@ -244,9 +244,10 @@ $(document).ready(function() {
             start: startDate,
             end: endDate,
             negotiation: isNego,
-            user: 'sampleuserid1',
+            user: 'Me',
         });
 
+        database.ref('Offers/' + enrollKey.key + '/time').remove();
         for(let i = 0; i < worktimes.childNodes.length; i++){
             let targetTime = worktimes.childNodes.item(i);
             let timeKey = database.ref('Offers/' + enrollKey.key + '/time').push();
@@ -260,7 +261,7 @@ $(document).ready(function() {
 
     // Section for Accept button
     $(document).on('click', "#cancel", function(){
-        let reallycancel = confirm('Do you really want to cancel and go back to main page?');
+        let reallycancel = confirm('Do you really want to cancel and go back?');
         if(reallycancel){
             location.href = "/detail.html";
         }
