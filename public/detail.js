@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     // import offer detail
     let config = {
         apiKey: "AIzaSyAJYY0Az45sH0Sw6jAz3JvR4yjJBIMtbzU",
@@ -8,7 +9,7 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     let database = firebase.database();
 
-    const offerid = '-LeNQ_rxVkSm7SQmduLz';
+    const offerid = 'sampleofferid';
     // const offerid = sessionStorage.getItem('offerid');
 
     database.ref('Offers/' + offerid).once('value', function(snapshot){
@@ -61,6 +62,62 @@ $(document).ready(function() {
             worktimes.appendChild(newtime);
         });
 
+        let userid = 'Me';
+        // let userid = sessionStorage.getItem('userid');
 
+        let buttonarea = document.getElementById('offerButtons');
+        let firstButton = document.createElement('button');
+        firstButton.className = "ui primary button";
+        let buttonDiv = document.createElement('div');
+        buttonDiv.className = "or";
+        let secondButton = document.createElement('button');
+        secondButton.className = "ui yellow button";
+
+        if (userid === snapshot.val().user){
+            firstButton.innerText = "Delete";
+            firstButton.setAttribute('id', 'delete');
+            secondButton.innerText = "Modify";
+            secondButton.setAttribute('id', 'modify');
+        }
+        else{
+            firstButton.innerText = "Accept";
+            firstButton.setAttribute('id', 'accept');
+            secondButton.innerText = "Negotiate";
+            secondButton.setAttribute('id', 'negotiate');
+        }
+
+        buttonarea.appendChild(firstButton);
+        buttonarea.appendChild(buttonDiv);
+        buttonarea.appendChild(secondButton);
+
+    });
+
+    // Section for Accept button
+    $(document).on('click', "#accept", function(){
+        let reallyaccept = confirm('Do you really want to accept this offer?');
+        if(reallyaccept){
+            alert('Offer accepted');
+            location.href = "/";
+        }
+    });
+
+    // Section for Delete button
+    $(document).on('click', "#delete", function(){
+        let reallyaccept = confirm('Do you really want to delete this offer?');
+        if(reallyaccept){
+            alert('Successfully deleted');
+            location.href = "/";
+        }
+        // Not implemented whole delete process yet.
+    });
+
+    // Section for Modification button
+    $(document).on('click', "#modify", function(){
+        location.href = '/modify.html';
+    });
+
+    // Section for Negotiation button
+    $(document).on('click', "#negotiate", function(){
+        location.href = '/negotiation.html';
     });
 });

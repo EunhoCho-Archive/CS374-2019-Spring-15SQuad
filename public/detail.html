@@ -10,9 +10,31 @@
             crossorigin="anonymous"></script>
     <script src="./semantic.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
-    <script src="./includeHTML.js"></script>
 </head>
 <body>
+    <!-- Fixed Header -->
+    <div class="ui massive yellow inverted menu">
+        <div class="left menu">
+            <a onclick="location.href='/'" class="item">
+                <img class="ui image" src="./BizmonLogo.png">
+            </a>
+        </div>
+        <div class="right menu">
+            <a onclick="location.href='/enroll.html'" class="item">
+                <div class="ui small black header">
+                    <i class="calendar plus icon"></i>
+                    Enroll
+                </div>
+            </a>
+            <a onclick="location.href='/mypage.html'" class="item">
+                <div class="ui small black header">
+                    <i class="user icon"></i>
+                    My Page
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- ------------------- -->
     <div class="ui grid">
         <div class="two wide column"></div></div>
         <div class="twelve wide column">
@@ -57,11 +79,7 @@
                     <div class="five wide fields">
                         <div class="field"></div><div class="field"></div>
                         <div class="field">
-                            <div class="ui buttons">
-                                <button id="accept", class="ui primary button">Accept</button>
-                                <div class="or"></div>
-                                <button id="negotiate" class="ui yellow button">Negotiate</button>
-                            </div>
+                            <div id="offerButtons" class="ui buttons"></div>
                         </div>
                         <div class="field"></div><div class="field"></div>
                     </div>
@@ -69,7 +87,6 @@
             </div>
         </div>
     </div>
-    <script>includeHTML();</script>
     <script src="./detail.js"></script>
 </body>
 </html>
