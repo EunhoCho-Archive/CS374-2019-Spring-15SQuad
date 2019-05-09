@@ -13,46 +13,59 @@
     <script src="./includeHTML.js"></script>
 </head>
 <body>
-    <div class="ui container segment">
-        <div class="ui form">
-            <h1><i class="icon sign-out"></i>Enrollment</h1>
-            <h3 class="yellow ui dividing header">Workday</h3>
-            <div class="inline fields">
-                <div class="one wide field"></div>
-                <h4 class="one wide field">Starts</h4>
-                <div class="three wide field">
-                    <input id="start_date" type="date" min="2019-05-08">
-                </div>
+    <div class="ui grid">
+        <div class="three wide column">
+            <div class="ui left fixed secondary vertical pointing menu">
+                <a class="active item">Workday<i class="green icon check"></i></a>
+                <a class="item">Worktime<i class="red icon close"></i></a>
+                <a class="item">Negotiation</a>
+                <a class="item">Back to Top</a>
+                <a class="item">Go to Bottom</a>
             </div>
-            <div class="inline fields">
-                <div class="one wide field"></div>
-                <h4 class="one wide field">Ends</h4>
-                <div class="three wide field">
-                    <input id="end_date" type="date" min="2019-05-08">
-                </div>
-            </div>
-            <h3 class="yellow ui dividing header">Worktime</h3>
-            <div id="worktime"></div>
-            <h3 class="yellow ui dividing header">Negotiation possible?</h3>
-            <div class="inline fields">
-                <div class="two wide field"></div>
-                <div class="two wide field">
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="isPossible" id="isNegoTrue" value="true">
-                        <label>Possible</label>
+        </div>
+        <div class="eleven wide column">
+            <div class="ui container segment">
+                <div class="ui form">
+                    <h1><i class="icon sign-out"></i>Enrollment</h1>
+                    <h3 class="yellow ui dividing header">Workday</h3>
+                    <div class="inline fields">
+                        <div class="one wide field"></div>
+                        <h4 class="one wide field">Starts</h4>
+                        <div class="three wide field">
+                            <input id="start_date" type="date" min="2019-05-08">
+                        </div>
+                    </div>
+                    <div class="inline fields">
+                        <div class="one wide field"></div>
+                        <h4 class="one wide field">Ends</h4>
+                        <div class="three wide field">
+                            <input id="end_date" type="date" min="2019-05-08">
+                        </div>
+                    </div>
+                    <h3 class="yellow ui dividing header">Worktime</h3>
+                    <div id="worktime"></div>
+                    <h3 class="yellow ui dividing header">Negotiation possible?</h3>
+                    <div class="inline fields">
+                        <div class="two wide field"></div>
+                        <div class="two wide field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="isPossible" id="isNegoTrue" value="true">
+                                <label>Possible</label>
+                            </div>
+                        </div>
+                        <div class="two wide field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="isPossible" id="isNegoFalse" value="false">
+                                <label>Impossible</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui buttons">
+                        <button id="cancel", class="ui button">Cancel</button>
+                        <div class="or"></div>
+                        <button id="submit" class="ui yellow button">Submit</button>
                     </div>
                 </div>
-                <div class="two wide field">
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="isPossible" id="isNegoFalse" value="false">
-                        <label>Impossible</label>
-                    </div>
-                </div>
-            </div>
-            <div class="ui buttons">
-                <button id="cancel", class="ui button">Cancel</button>
-                <div class="or"></div>
-                <button id="submit" class="ui yellow button">Submit</button>
             </div>
         </div>
     </div>
