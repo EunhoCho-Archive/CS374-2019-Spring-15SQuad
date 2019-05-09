@@ -16,13 +16,13 @@ $(document).ready(function() {
         daySelection.className = "one field";
         daySelection.innerHTML = "<select class=\"ui fluid dropdown\">\n" +
             "\t<option value=\"\">Day</option>\n" +
-            "\t<option value=\"mon\">Mon</option>\n" +
-            "\t<option value=\"tue\">Tue</option>\n" +
-            "\t<option value=\"wed\">Wed</option>\n" +
-            "\t<option value=\"thur\">Thur</option>\n" +
-            "\t<option value=\"fri\">Fri</option>\n" +
-            "\t<option value=\"sat\">Sat</option>\n" +
-            "\t<option value=\"sun\">Sun</option></select>";
+            "\t<option value=\"Mon\">Mon</option>\n" +
+            "\t<option value=\"Tue\">Tue</option>\n" +
+            "\t<option value=\"Wed\">Wed</option>\n" +
+            "\t<option value=\"Thur\">Thur</option>\n" +
+            "\t<option value=\"Fri\">Fri</option>\n" +
+            "\t<option value=\"Sat\">Sat</option>\n" +
+            "\t<option value=\"Sun\">Sun</option></select>";
         newtime.appendChild(daySelection);
 
         let startTimeSelection = document.createElement('div');
@@ -110,13 +110,13 @@ $(document).ready(function() {
         daySelection.className = "one field";
         daySelection.innerHTML = "<select class=\"ui fluid dropdown\">\n" +
             "\t<option value=\"\">Day</option>\n" +
-            "\t<option value=\"mon\">Mon</option>\n" +
-            "\t<option value=\"tue\">Tue</option>\n" +
-            "\t<option value=\"wed\">Wed</option>\n" +
-            "\t<option value=\"thur\">Thur</option>\n" +
-            "\t<option value=\"fri\">Fri</option>\n" +
-            "\t<option value=\"sat\">Sat</option>\n" +
-            "\t<option value=\"sun\">Sun</option></select>";
+            "\t<option value=\"Mon\">Mon</option>\n" +
+            "\t<option value=\"Tue\">Tue</option>\n" +
+            "\t<option value=\"Wed\">Wed</option>\n" +
+            "\t<option value=\"Thur\">Thur</option>\n" +
+            "\t<option value=\"Fri\">Fri</option>\n" +
+            "\t<option value=\"Sat\">Sat</option>\n" +
+            "\t<option value=\"Sun\">Sun</option></select>";
         newtime.appendChild(daySelection);
 
         let startTimeSelection = document.createElement('div');
