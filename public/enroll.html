@@ -27,43 +27,55 @@
             <div class="ui container segment">
                 <div class="ui form">
                     <h1><i class="icon sign-out"></i>Enrollment</h1>
-                    <h3 class="yellow ui dividing header">Workday</h3>
+                    <h2 class="yellow ui dividing header">Workday</h2>
                     <div class="inline fields">
                         <div class="one wide field"></div>
-                        <h4 class="one wide field">Starts</h4>
+                        <h3 class="one wide field">Starts</h3>
                         <div class="three wide field">
                             <input id="start_date" type="date" min="2019-05-08">
                         </div>
                     </div>
                     <div class="inline fields">
                         <div class="one wide field"></div>
-                        <h4 class="one wide field">Ends</h4>
+                        <h3 class="one wide field">Ends</h3>
                         <div class="three wide field">
                             <input id="end_date" type="date" min="2019-05-08">
                         </div>
                     </div>
-                    <h3 class="yellow ui dividing header">Worktime</h3>
+                    <h2 class="yellow ui dividing header">Worktime</h2>
                     <div id="worktime"></div>
-                    <h3 class="yellow ui dividing header">Negotiation possible?</h3>
+                    <h2 class="yellow ui dividing header">Negotiation possible?</h2>
                     <div class="inline fields">
                         <div class="two wide field"></div>
-                        <div class="two wide field">
+                        <div class="one field">
                             <div class="ui radio checkbox">
                                 <input type="radio" name="isPossible" id="isNegoTrue" value="true">
-                                <label>Possible</label>
+                                <label></label>
                             </div>
                         </div>
                         <div class="two wide field">
+                            <h3>Possible</h3>
+                        </div>
+                        <div class="one field">
                             <div class="ui radio checkbox">
                                 <input type="radio" name="isPossible" id="isNegoFalse" value="false">
-                                <label>Impossible</label>
+                                <label></label>
                             </div>
                         </div>
+                        <div class="two wide field">
+                            <h3>Impossible</h3>
+                        </div>
                     </div>
-                    <div class="ui buttons">
-                        <button id="cancel", class="ui button">Cancel</button>
-                        <div class="or"></div>
-                        <button id="submit" class="ui yellow button">Submit</button>
+                    <div class="five wide fields">
+                        <div class="field"></div><div class="field"></div>
+                        <div class="field">
+                            <div class="ui buttons">
+                                <button id="cancel", class="ui button">Cancel</button>
+                                <div class="or"></div>
+                                <button id="submit" class="ui yellow button">Submit</button>
+                            </div>
+                        </div>
+                        <div class="field"></div><div class="field"></div>
                     </div>
                 </div>
             </div>
