@@ -258,7 +258,7 @@ $(document).ready(function() {
         }
     });
 
-    // Section for Accept button
+    // Section for Cancel button
     $(document).on('click', "#cancel", function(){
         let reallycancel = confirm('Do you really want to cancel and go back?');
         if(reallycancel){
