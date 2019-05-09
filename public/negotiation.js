@@ -147,6 +147,13 @@ $(document).ready(function() {
         worktimes.lastChild.appendChild(plusButton);
 
         offerOwner = snapshot.val().user;
+
+        if (offerOwner !== "Me"){
+            document.getElementById('inAndOutIcon').className = "icon sign-in";
+        }
+        else{
+            document.getElementById('inAndOutIcon').className = "icon sign-out";
+        }
     });
 
     /// After press delete time button
