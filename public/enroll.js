@@ -145,7 +145,7 @@ $(document).ready(function() {
 
     initializeWorkTime();
 
-    // Section for submit & add form to firebase
+    // Section for submit button & add form to firebase
     let config = {
         apiKey: "AIzaSyAJYY0Az45sH0Sw6jAz3JvR4yjJBIMtbzU",
         authDomain: "squad-67b43.firebaseapp.com",
@@ -178,6 +178,14 @@ $(document).ready(function() {
                 start: targetTime.childNodes.item(2).lastChild.value,
                 end: targetTime.childNodes.item(4).lastChild.value
             })
+        }
+    });
+
+    // Section for Accept button
+    $(document).on('click', "#cancel", function(){
+        let reallycancel = confirm('Do you really want to cancel and go back to main page?');
+        if(reallycancel){
+            location.href = "/";
         }
     });
 });
