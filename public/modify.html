@@ -10,70 +10,92 @@
             crossorigin="anonymous"></script>
     <script src="./semantic.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
-    <script src="./includeHTML.js"></script>
 </head>
 <body>
-<div class="ui grid">
-    <div class="two wide column"></div>
-    <div class="twelve wide column">
-        <div class="ui container segment">
-            <div class="ui form">
-                <h1><i class="icon sign-out"></i>Modification</h1>
-                <h2 class="yellow ui dividing header">Workday</h2>
-                <div class="inline fields">
-                    <div class="one wide field"></div>
-                    <h3 class="one wide field">Starts</h3>
-                    <div class="three wide field">
-                        <input id="start_date" type="date" min="2019-05-08">
-                    </div>
+    <!-- Fixed Header -->
+    <div class="ui massive yellow inverted menu">
+        <div class="left menu">
+            <a class="item">
+                <img class="ui image" src="./BizmonLogo.png">
+            </a>
+        </div>
+        <div class="right menu">
+            <a class="item">
+                <div class="ui small black header">
+                    <i class="calendar plus icon"></i>
+                    Enroll
                 </div>
-                <div class="inline fields">
-                    <div class="one wide field"></div>
-                    <h3 class="one wide field">Ends</h3>
-                    <div class="three wide field">
-                        <input id="end_date" type="date" min="2019-05-08">
-                    </div>
+            </a>
+            <a class="item">
+                <div class="ui small black header">
+                    <i class="user icon"></i>
+                    My Page
                 </div>
-                <h2 class="yellow ui dividing header">Worktime</h2>
-                <div id="worktime"></div>
-                <h2 class="yellow ui dividing header">Negotiation possible?</h2>
-                <div class="inline fields">
-                    <div class="two wide field"></div>
-                    <div class="one field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="isPossible" id="isNegoTrue" value="true">
-                            <label></label>
+            </a>
+        </div>
+    </div>
+    <!-- ------------------- -->
+    <div class="ui grid">
+        <div class="two wide column"></div>
+        <div class="twelve wide column">
+            <div class="ui container segment">
+                <div class="ui form">
+                    <h1><i class="icon sign-out"></i>Modification</h1>
+                    <h2 class="yellow ui dividing header">Workday</h2>
+                    <div class="inline fields">
+                        <div class="one wide field"></div>
+                        <h3 class="one wide field">Starts</h3>
+                        <div class="three wide field">
+                            <input id="start_date" type="date" min="2019-05-08">
                         </div>
                     </div>
-                    <div class="two wide field">
-                        <h3>Possible</h3>
-                    </div>
-                    <div class="one field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="isPossible" id="isNegoFalse" value="false">
-                            <label></label>
+                    <div class="inline fields">
+                        <div class="one wide field"></div>
+                        <h3 class="one wide field">Ends</h3>
+                        <div class="three wide field">
+                            <input id="end_date" type="date" min="2019-05-08">
                         </div>
                     </div>
-                    <div class="two wide field">
-                        <h3>Impossible</h3>
-                    </div>
-                </div>
-                <div class="five wide fields">
-                    <div class="field"></div><div class="field"></div>
-                    <div class="field">
-                        <div class="ui buttons">
-                            <button id="cancel", class="ui button">Cancel</button>
-                            <div class="or"></div>
-                            <button id="submit" class="ui yellow button">Submit</button>
+                    <h2 class="yellow ui dividing header">Worktime</h2>
+                    <div id="worktime"></div>
+                    <h2 class="yellow ui dividing header">Negotiation possible?</h2>
+                    <div class="inline fields">
+                        <div class="two wide field"></div>
+                        <div class="one field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="isPossible" id="isNegoTrue" value="true">
+                                <label></label>
+                            </div>
+                        </div>
+                        <div class="two wide field">
+                            <h3>Possible</h3>
+                        </div>
+                        <div class="one field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="isPossible" id="isNegoFalse" value="false">
+                                <label></label>
+                            </div>
+                        </div>
+                        <div class="two wide field">
+                            <h3>Impossible</h3>
                         </div>
                     </div>
-                    <div class="field"></div><div class="field"></div>
+                    <div class="five wide fields">
+                        <div class="field"></div><div class="field"></div>
+                        <div class="field">
+                            <div class="ui buttons">
+                                <button id="cancel", class="ui button">Cancel</button>
+                                <div class="or"></div>
+                                <button id="submit" class="ui yellow button">Submit</button>
+                            </div>
+                        </div>
+                        <div class="field"></div><div class="field"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script>includeHTML();</script>
-<script src="./modify.js"></script>
+    <script src="./header.js"></script>
+    <script src="./modify.js"></script>
 </body>
 </html>
