@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     // import offer detail
     let config = {
         apiKey: "AIzaSyAJYY0Az45sH0Sw6jAz3JvR4yjJBIMtbzU",
@@ -60,7 +61,19 @@ $(document).ready(function() {
 
             worktimes.appendChild(newtime);
         });
+    });
 
+    // Section for Accept button
+    $(document).on('click', "#accept", function(){
+        let reallyaccept = confirm('Do you really want to accept this offer?');
+        if(reallyaccept){
+            alert('Offer accepted');
+            location.href = "/";
+        }
+    });
 
+    // Section for Negotiation button
+    $(document).on('click', "#negotiate", function(){
+        location.href = '/negotiation.html';
     });
 });
