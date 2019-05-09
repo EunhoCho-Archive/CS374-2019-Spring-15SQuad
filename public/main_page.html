@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bizmon-MainPage</title>
+    <link rel="stylesheet" type="text/css" href="./semantic.css">
+    <link rel="stylesheet" type="text/css" href="./main_page.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="./semantic.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script src="./includeHTML.js"></script>
+</head>
+<body>
+    <div class="ui grid">
+        <div class="two wide column">
+            <!-- Search Filter
+            <div class="ui left fixed secondary vertical pointing menu">
+                <a class="active item">Workday<i class="green icon check"></i></a>
+                <a class="item">Worktime<i class="red icon close"></i></a>
+                <a class="item">Negotiation</a>
+                <a class="item">Back to Top</a>
+                <a class="item">Go to Bottom</a>
+            </div>-->
+        </div>
+        <div class="twelve wide column">
+            <div class="ui container">
+                <div class="ui form">                 
+                    <div class="ui three column stackable center aligned grid">
+                        <div class="middle aligned row">
+                            <div class="column"><h2>store</h2></div>
+                            <div class="column"><h2>period</h2></div>
+                            <div class="column"><h2>day & time</h2></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="center-div">
+                <div class="ui pagination menu">
+                  <a class="active item">
+                    1
+                  </a>
+                  <a class="item">
+                    2
+                  </a>
+                  <div class="disabled item">
+                    ...
+                  </div>
+                  <a class="item">
+                    10
+                  </a>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script>includeHTML();</script>
+    <script src="./main_page.js"></script>
+</body>
+</html>
