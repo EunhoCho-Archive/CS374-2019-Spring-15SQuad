@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     // Section for Worktime
+    /// Worktime div initialize
     function initializeWorkTime(){
         let worktimes = document.getElementById('worktime');
 
@@ -15,13 +16,13 @@ $(document).ready(function() {
         daySelection.className = "one field";
         daySelection.innerHTML = "<select class=\"ui fluid dropdown\">\n" +
             "\t<option value=\"\">Day</option>\n" +
-            "\t<option value=\"mon\">Mon</option>\n" +
-            "\t<option value=\"tue\">Tue</option>\n" +
-            "\t<option value=\"wed\">Wed</option>\n" +
-            "\t<option value=\"thur\">Thur</option>\n" +
-            "\t<option value=\"fri\">Fri</option>\n" +
-            "\t<option value=\"sat\">Sat</option>\n" +
-            "\t<option value=\"sun\">Sun</option></select>";
+            "\t<option value=\"Mon\">Mon</option>\n" +
+            "\t<option value=\"Tue\">Tue</option>\n" +
+            "\t<option value=\"Wed\">Wed</option>\n" +
+            "\t<option value=\"Thur\">Thur</option>\n" +
+            "\t<option value=\"Fri\">Fri</option>\n" +
+            "\t<option value=\"Sat\">Sat</option>\n" +
+            "\t<option value=\"Sun\">Sun</option></select>";
         newtime.appendChild(daySelection);
 
         let startTimeSelection = document.createElement('div');
@@ -47,6 +48,7 @@ $(document).ready(function() {
         worktimes.appendChild(newtime);
     }
 
+    /// After press delete time button
     $(document).on('click', '.delete_time', function(){
         let worktimes = document.getElementById('worktime');
         let lastTime = worktimes.lastChild;
@@ -83,6 +85,7 @@ $(document).ready(function() {
         }
     });
 
+    /// After press more time button
     $(document).on('click', "#more_time", function(){
         let worktimes = document.getElementById('worktime');
         let lastTime = worktimes.lastChild;
@@ -107,13 +110,13 @@ $(document).ready(function() {
         daySelection.className = "one field";
         daySelection.innerHTML = "<select class=\"ui fluid dropdown\">\n" +
             "\t<option value=\"\">Day</option>\n" +
-            "\t<option value=\"mon\">Mon</option>\n" +
-            "\t<option value=\"tue\">Tue</option>\n" +
-            "\t<option value=\"wed\">Wed</option>\n" +
-            "\t<option value=\"thur\">Thur</option>\n" +
-            "\t<option value=\"fri\">Fri</option>\n" +
-            "\t<option value=\"sat\">Sat</option>\n" +
-            "\t<option value=\"sun\">Sun</option></select>";
+            "\t<option value=\"Mon\">Mon</option>\n" +
+            "\t<option value=\"Tue\">Tue</option>\n" +
+            "\t<option value=\"Wed\">Wed</option>\n" +
+            "\t<option value=\"Thur\">Thur</option>\n" +
+            "\t<option value=\"Fri\">Fri</option>\n" +
+            "\t<option value=\"Sat\">Sat</option>\n" +
+            "\t<option value=\"Sun\">Sun</option></select>";
         newtime.appendChild(daySelection);
 
         let startTimeSelection = document.createElement('div');
@@ -142,7 +145,7 @@ $(document).ready(function() {
 
     initializeWorkTime();
 
-    // Section for submit
+    // Section for submit & add form to firebase
     let config = {
         apiKey: "AIzaSyAJYY0Az45sH0Sw6jAz3JvR4yjJBIMtbzU",
         authDomain: "squad-67b43.firebaseapp.com",
