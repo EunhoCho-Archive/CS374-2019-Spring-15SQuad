@@ -9,7 +9,7 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     let database = firebase.database();
 
-    const offerid = '-LeNQ_rxVkSm7SQmduLz';
+    const offerid = 'sampleofferid';
     // const offerid = sessionStorage.getItem('offerid');
 
     database.ref('Offers/' + offerid).once('value', function(snapshot){

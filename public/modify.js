@@ -7,7 +7,7 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     let database = firebase.database();
 
-    const offerid = '-LeNQ_rxVkSm7SQmduLz';
+    const offerid = 'sampleofferid';
     // const offerid = sessionStorage.getItem('offerid');
 
 
@@ -239,18 +239,17 @@ $(document).ready(function() {
         if (document.getElementById('isNegoFalse').checked){
             isNego = false;
         }
-        let enrollKey = offerid;
-        enrollKey.set({
+        database.ref('Offers/' + offerid).set({
             start: startDate,
             end: endDate,
             negotiation: isNego,
             user: 'Me',
         });
 
-        database.ref('Offers/' + enrollKey.key + '/time').remove();
+        database.ref('Offers/' + offerid + '/time').remove();
         for(let i = 0; i < worktimes.childNodes.length; i++){
             let targetTime = worktimes.childNodes.item(i);
-            let timeKey = database.ref('Offers/' + enrollKey.key + '/time').push();
+            let timeKey = database.ref('Offers/' + offerid + '/time').push();
             timeKey.set({
                 day: targetTime.childNodes.item(1).lastChild.value,
                 start: targetTime.childNodes.item(2).lastChild.value,
