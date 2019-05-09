@@ -102,7 +102,7 @@ $(document).ready(function() {
     });
 
     // Section for Delete button
-    $(document).on('click', "#accept", function(){
+    $(document).on('click', "#delete", function(){
         let reallyaccept = confirm('Do you really want to delete this offer?');
         if(reallyaccept){
             alert('Successfully deleted');
@@ -111,8 +111,8 @@ $(document).ready(function() {
         // Not implemented whole delete process yet.
     });
 
-    // Section for Negotiation button
-    $(document).on('click', "#negotiate", function(){
+    // Section for Modification button
+    $(document).on('click', "#modify", function(){
         location.href = '/modify.html';
     });
 
