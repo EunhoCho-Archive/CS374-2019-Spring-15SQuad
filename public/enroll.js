@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     // Section for Worktime
+    /// Worktime div initialize
     function initializeWorkTime(){
         let worktimes = document.getElementById('worktime');
 
@@ -47,6 +48,7 @@ $(document).ready(function() {
         worktimes.appendChild(newtime);
     }
 
+    /// After press delete time button
     $(document).on('click', '.delete_time', function(){
         let worktimes = document.getElementById('worktime');
         let lastTime = worktimes.lastChild;
@@ -83,6 +85,7 @@ $(document).ready(function() {
         }
     });
 
+    /// After press more time button
     $(document).on('click', "#more_time", function(){
         let worktimes = document.getElementById('worktime');
         let lastTime = worktimes.lastChild;
@@ -142,7 +145,7 @@ $(document).ready(function() {
 
     initializeWorkTime();
 
-    // Section for submit
+    // Section for submit & add form to firebase
     let config = {
         apiKey: "AIzaSyAJYY0Az45sH0Sw6jAz3JvR4yjJBIMtbzU",
         authDomain: "squad-67b43.firebaseapp.com",
