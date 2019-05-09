@@ -61,6 +61,35 @@ $(document).ready(function() {
 
             worktimes.appendChild(newtime);
         });
+
+        let userid = 'sampleuserid1';
+        // let userid = sessionStorage.getItem('userid');
+
+        let buttonarea = document.getElementById('offerButtons');
+        let firstButton = document.createElement('button');
+        firstButton.className = "ui primary button";
+        let buttonDiv = document.createElement('div');
+        buttonDiv.className = "or";
+        let secondButton = document.createElement('button');
+        secondButton.className = "ui yellow button";
+
+        if (userid === snapshot.val().user){
+            firstButton.innerText = "Delete";
+            firstButton.setAttribute('id', 'delete');
+            secondButton.innerText = "Modify";
+            secondButton.setAttribute('id', 'modify');
+        }
+        else{
+            firstButton.innerText = "Accept";
+            firstButton.setAttribute('id', 'accept');
+            secondButton.innerText = "Negotiate";
+            secondButton.setAttribute('id', 'negotiate');
+        }
+
+        buttonarea.appendChild(firstButton);
+        buttonarea.appendChild(buttonDiv);
+        buttonarea.appendChild(secondButton);
+
     });
 
     // Section for Accept button
@@ -70,6 +99,21 @@ $(document).ready(function() {
             alert('Offer accepted');
             location.href = "/";
         }
+    });
+
+    // Section for Delete button
+    $(document).on('click', "#accept", function(){
+        let reallyaccept = confirm('Do you really want to delete this offer?');
+        if(reallyaccept){
+            alert('Successfully deleted');
+            location.href = "/";
+        }
+        // Not implemented whole delete process yet.
+    });
+
+    // Section for Negotiation button
+    $(document).on('click', "#negotiate", function(){
+        location.href = '/modify.html';
     });
 
     // Section for Negotiation button
