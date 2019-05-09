@@ -155,29 +155,34 @@ $(document).ready(function() {
     let database = firebase.database();
 
     $(document).on('click', "#submit", function(){
-        let worktimes = document.getElementById('worktime');
-        let startDate = document.getElementById('start_date').value;
-        let endDate = document.getElementById('end_date').value;
-        let isNego = true;
-        if (document.getElementById('isNegoFalse').checked){
-            isNego = false;
-        }
-        let enrollKey = database.ref('Offers').push();
-        enrollKey.set({
-            start: startDate,
-            end: endDate,
-            negotiation: isNego,
-            user: 'Me',
-        });
+        let reallysubmit = confirm('Do you really want to submit link this?');
+        if(reallysubmit){
+            let worktimes = document.getElementById('worktime');
+            let startDate = document.getElementById('start_date').value;
+            let endDate = document.getElementById('end_date').value;
+            let isNego = true;
+            if (document.getElementById('isNegoFalse').checked){
+                isNego = false;
+            }
+            let enrollKey = database.ref('Offers').push();
+            enrollKey.set({
+                start: startDate,
+                end: endDate,
+                negotiation: isNego,
+                user: 'Me',
+            });
 
-        for(let i = 0; i < worktimes.childNodes.length; i++){
-            let targetTime = worktimes.childNodes.item(i);
-            let timeKey = database.ref('Offers/' + enrollKey.key + '/time').push();
-            timeKey.set({
-                day: targetTime.childNodes.item(1).lastChild.value,
-                start: targetTime.childNodes.item(2).lastChild.value,
-                end: targetTime.childNodes.item(4).lastChild.value
-            })
+            for(let i = 0; i < worktimes.childNodes.length; i++){
+                let targetTime = worktimes.childNodes.item(i);
+                let timeKey = database.ref('Offers/' + enrollKey.key + '/time').push();
+                timeKey.set({
+                    day: targetTime.childNodes.item(1).lastChild.value,
+                    start: targetTime.childNodes.item(2).lastChild.value,
+                    end: targetTime.childNodes.item(4).lastChild.value
+                })
+            }
+            alert('Successfully enrolled!');
+            location.href = '/';
         }
     });
 
