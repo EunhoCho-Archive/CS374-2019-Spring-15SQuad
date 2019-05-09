@@ -1,0 +1,14 @@
+.elem {
+  /*font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  line-height: 1.28571429em;*/
+  margin: 0em;
+  /*font-weight: bold;
+  padding: 0em;
+  font-size: 1.71428571rem;*/
+}
+
+.center-div {
+  margin: 0em auto;
+  width: 130px;
+  text-align: center;
+}
