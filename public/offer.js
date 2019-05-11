@@ -8,6 +8,7 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     let database = firebase.database();
     const type = sessionStorage.getItem('type');
+    let offerOwner = undefined;
 
     function initialize(){
         let date = new Date();
@@ -232,7 +233,6 @@ $(document).ready(function() {
 
             } else if (type === 'Negotiate') {
                 database.ref(databaseRef).once('value', function (snapshot) {
-                    let offerOwner = undefined;
                     if(sessionStorage.getItem('negofrom') === "Nego"){
                         offerOwner = snapshot.val().from;
                     }
