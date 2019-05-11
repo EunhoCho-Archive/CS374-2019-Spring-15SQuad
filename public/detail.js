@@ -31,7 +31,7 @@ $(document).ready(function() {
             let isPossible = snapshot.val().negotiation;
             const trueradio = document.getElementById('isNegoTrue');
             const falseradio = document.getElementById('isNegoFalse');
-            if(isPossible === "true"){
+            if(isPossible === "true" || isPossible === true){
                 trueradio.setAttribute('checked', "");
                 falseradio.setAttribute('disabled', 'disabled');
             }
@@ -94,7 +94,7 @@ $(document).ready(function() {
                 firstButton.setAttribute('id', 'accept');
                 secondButton.innerText = "Negotiate";
                 secondButton.setAttribute('id', 'negotiate');
-                if(isPossible === "false"){
+                if(isPossible === "false" || isPossible === false){
                     secondButton.className = "ui black button";
                 }
             }
@@ -125,7 +125,7 @@ $(document).ready(function() {
             let isPossible = snapshot.val().negotiation;
             const trueradio = document.getElementById('isNegoTrue');
             const falseradio = document.getElementById('isNegoFalse');
-            if(isPossible === "true"){
+            if(isPossible === "true" || isPossible === true){
                 trueradio.setAttribute('checked', "");
                 falseradio.setAttribute('disabled', 'disabled');
             }
@@ -212,7 +212,7 @@ $(document).ready(function() {
                 firstButton.setAttribute('id', 'accept');
                 secondButton.innerText = "Negotiate";
                 secondButton.setAttribute('id', 'negotiate');
-                if(isPossible === "false"){
+                if(isPossible === "false" || isPossible === false){
                     secondButton.className = "ui black button";
                 }
             }

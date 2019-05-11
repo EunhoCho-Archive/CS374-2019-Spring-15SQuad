@@ -92,7 +92,7 @@ $(document).ready(function() {
                     document.getElementById('end_date').setAttribute('value', snapshot.val().end);
 
                     let isPossible = snapshot.val().negotiation;
-                    if (isPossible === "true") {
+                    if (isPossible === "true" || isPossible === true) {
                         trueradio.setAttribute('checked', "");
                     } else {
                         falseradio.setAttribute('checked', "");
@@ -244,7 +244,7 @@ $(document).ready(function() {
                     document.getElementById('end_date').setAttribute('value', snapshot.val().end);
 
                     let isPossible = snapshot.val().negotiation;
-                    if (isPossible) {
+                    if (isPossible === "true" || isPossible === true) {
                         trueradio.setAttribute('checked', "");
                     } else {
                         falseradio.setAttribute('checked', "");
@@ -390,7 +390,7 @@ $(document).ready(function() {
                     document.getElementById('end_date').setAttribute('value', snapshot.val().end);
 
                     let isPossible = snapshot.val().negotiation;
-                    if (isPossible) {
+                    if (isPossible === "true" || isPossible === true) {
                         trueradio.setAttribute('checked', "");
                     } else {
                         falseradio.setAttribute('checked', "");

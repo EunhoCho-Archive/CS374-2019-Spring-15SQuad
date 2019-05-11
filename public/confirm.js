@@ -19,7 +19,7 @@ $(document).ready(function() {
         let isPossible = sessionStorage.getItem('negotiation');
         const trueradio = document.getElementById('isNegoTrue');
         const falseradio = document.getElementById('isNegoFalse');
-        if(isPossible === "true"){
+        if(isPossible === "true" || isPossible === true){
             trueradio.setAttribute('checked', "");
             falseradio.setAttribute('disabled', 'disabled');
         }
