@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Bizmon-My Offers</title>
     <link rel="stylesheet" type="text/css" href="./semantic.css">
+    <link rel="stylesheet" type="text/css" href="paging.css">
     <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -45,7 +46,7 @@
     <div class="ui grid">
         <div class="two wide column"></div>
         <div class="twelve wide column">
-            <div class="ui container">
+            <div id="table_header" class="ui container">
                 <h1>My Offers</h1>
                 <div class="ui two column stackable center aligned grid">
                     <div class="middle aligned row">
@@ -56,22 +57,6 @@
             </div>
             <div id="loader" class="ui active inverted dimmer">
                 <div class="ui active centered inline loader"></div>
-            </div>
-            <div class="center-div">
-                <div class="ui pagination menu">
-                  <a class="active item">
-                    1
-                  </a>
-                  <a class="item">
-                    2
-                  </a>
-                  <div class="disabled item">
-                    ...
-                  </div>
-                  <a class="item">
-                    10
-                  </a>
-              </div>
             </div>
         </div>
     </div>
