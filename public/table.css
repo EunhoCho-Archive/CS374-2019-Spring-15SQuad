@@ -1,0 +1,24 @@
+.elem {
+  /*font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  line-height: 1.28571429em;*/
+  margin: 10px;
+  /*font-weight: bold;
+  padding: 0em;
+  font-size: 1.71428571rem;*/
+}
+
+.center-div {
+  margin: 0em auto;
+  width: 130px;
+  text-align: center;
+}
+
+.entries{ /* container of entries and paging units */
+	margin: 20px;
+	text-align: bottom;
+}
+
+.ui.container.segment.offer.hover{ /* hovering color */
+  background: #F2F2F2 !important;
+  cursor: pointer !important;
+}
