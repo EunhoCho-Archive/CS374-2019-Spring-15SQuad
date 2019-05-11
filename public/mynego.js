@@ -130,7 +130,7 @@ $(document).ready(function() {
 		    		function(){
 		    			this.className += " hover";
 		    		},function(){
-		    			this.className = "ui container segment";
+		    			this.className = "ui container segment nego";
 		    		});
 		        hover_index++;	
 				
