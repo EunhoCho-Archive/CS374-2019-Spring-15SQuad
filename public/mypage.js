@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 
 
-    show_nth_page = function(n){ /* n is active page number(0,1,...) */
+    function show_nth_page(n){ /* n is active page number(0,1,...) */
 
     	/* loader */
         // let new_loader = document.createElement('div');
@@ -125,7 +125,6 @@ $(document).ready(function() {
 
 	$(document).on('click', '.offer', function(){
 		let offerid = this.getAttribute('id');
-		console.log(offerid);
 		sessionStorage.setItem('offerid', offerid);
 		location.href = '/detail.html';
 	});
