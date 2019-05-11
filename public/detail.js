@@ -75,6 +75,24 @@ $(document).ready(function() {
             let userid = 'Me';
             // let userid = sessionStorage.getItem('userid');
 
+            let mainform = document.getElementById('statusField');
+            let statusHeader = document.createElement('h2');
+            statusHeader.className = "yellow ui dividing header";
+            statusHeader.innerText = "Status";
+            mainform.appendChild(statusHeader);
+
+            let statusField = document.createElement('div');
+            statusField.className = "inline fields"
+
+            let blankField = document.createElement('div');
+            blankField.className = "two wide field";
+            statusField.appendChild(blankField);
+
+            let mainStatus = document.createElement('div');
+            mainStatus.className = "two wide field";
+            mainStatus.innerHTML = "<h3>" + snapshot.val().status + "</h3>"
+            statusField.appendChild(mainStatus);
+
             let buttonarea = document.getElementById('offerButtons');
             let firstButton = document.createElement('button');
             firstButton.className = "ui primary button";
