@@ -8,7 +8,7 @@ $(document).ready(function() {
     let database = firebase.database();
 
 
-    show_nth_page = function(n){ /* n is active page number(0,1,...) */
+    function show_nth_page(n){ /* n is active page number(0,1,...) */
     	
     	/* loader */
         // let new_loader = document.createElement('div');
@@ -54,7 +54,8 @@ $(document).ready(function() {
 				//console.log(entry);
 			
 				let new_container = document.createElement('div');
-				new_container.className = "ui container segment";
+				new_container.className = "ui container segment nego";
+				new_container.setAttribute('id', my_offer_keys[i]);
 				entries_div.appendChild(new_container);
 
 				let new_col_grid = document.createElement('div');
@@ -156,9 +157,12 @@ $(document).ready(function() {
 
 	}
 
-    
-
 	show_nth_page(0);
 
-    
+	$(document).on('click', '.nego', function(){
+		let negoid = this.getAttribute('id');
+		sessionStorage.setItem('negoid', negoid);
+		location.href = '/detail.html';
+	});
+
 });

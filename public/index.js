@@ -125,7 +125,6 @@ $(document).ready(function() {
 
 	$(document).on('click', '.offer', function(){
 		let offerid = this.getAttribute('id');
-		console.log(offerid);
 		sessionStorage.setItem('offerid', offerid);
 		location.href = '/detail.html';
 	});

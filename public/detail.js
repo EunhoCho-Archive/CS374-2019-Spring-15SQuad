@@ -109,6 +109,7 @@ $(document).ready(function() {
             alert('Offer accepted');
             location.href = "/";
         }
+        // Not implemented whole accept process yet.
     });
 
     // Section for Delete button
@@ -123,11 +124,14 @@ $(document).ready(function() {
 
     // Section for Modification button
     $(document).on('click', "#modify", function(){
-        location.href = '/modify.html';
+        sessionStorage.setItem('type', 'Modify');
+        location.href = '/offeroffer.html';
     });
 
     // Section for Negotiation button
     $(document).on('click', "#negotiate", function(){
-        location.href = '/negotiation.html';
+        sessionStorage.setItem('type', 'Negotiate');
+        sessionStorage.setItem('negofrom', 'Offer');
+        location.href = '/offer.html';
     });
 });

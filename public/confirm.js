@@ -65,7 +65,7 @@ $(document).ready(function() {
     initialize();
 
     $(document).on('click', "#submit", function(){
-        const type = sessionStorage.getItem('confirmWhat');
+        const type = sessionStorage.getItem('type');
         const startDate = sessionStorage.getItem('start_date');
         const endDate = sessionStorage.getItem('end_date');
         const isNego = sessionStorage.getItem('negotiation');
