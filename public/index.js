@@ -9,15 +9,34 @@ $(document).ready(function() {
     let database = firebase.database();
 
     show_nth_page = function(n){ /* n is active page number (0,1,...) */
+ 
+ 		/* loader */
+        // let new_loader = document.createElement('div');
+        // new_loader.className = "ui active inverted dimmer";
+        // new_loader.setAttribute('id', 'loader');
+
+        // let new_loader_inline = document.createElement('div');
+        // new_loader_inline.className = "ui active centered inline loader";
+        // new_loader.appendChild(new_loader_inline);
+        // $("#table_header").after(new_loader);
+
     	return database.ref("/Offers/").once("value", function(snapshot) {
 
 	    	var value = snapshot.val();
 			if(value == null){
 				return;
 			}
-			var key_list = Object.keys(value);
+			var keys = Object.keys(value);
+			var my_offer_keys = new Array();
+			var j=0;
+			for(var i=0; i<keys.length; i++){
+				var entry = value[keys[i]];
+				if(entry.user != "Me"){
+					my_offer_keys[j++]=keys[i];
+				}
+			}
 
-	    	var bottom = key_list.length-5-(4*n);
+	    	var bottom = my_offer_keys.length-5-(4*n);
 	    	if(bottom < -1){
 	    		bottom = -1;
 	    	}
@@ -28,12 +47,12 @@ $(document).ready(function() {
 	    	$("#table_header").after(entries_div);
 
 
-	    	for(var i=(key_list.length-1-(4*n)); i>bottom; i--){
-				var entry = value[key_list[i]];
+	    	for(var i=(my_offer_keys.length-1-(4*n)); i>bottom; i--){
+				var entry = value[my_offer_keys[i]];
 
 				let new_container = document.createElement('div');
 				new_container.className = "ui container segment offer";
-        		new_container.setAttribute('id', key_list[i]);
+        		new_container.setAttribute('id', my_offer_keys[i]);
 				entries_div.appendChild(new_container);
 
 				let new_three_col_grid = document.createElement('div');
@@ -59,7 +78,7 @@ $(document).ready(function() {
 				let day_and_time = document.createElement('div');
 				day_and_time.className = "column";
 
-				snapshot.child(key_list[i]).child('time').forEach(function(data){
+				snapshot.child(my_offer_keys[i]).child('time').forEach(function(data){
 					let new_time = document.createElement('h2');
 		        	//console.log(data.val().day+"."+data.val().start+"~"+data.val().end);
 		        	new_time.innerHTML = data.val().day+"."+data.val().start+"~"+data.val().end;
@@ -81,7 +100,7 @@ $(document).ready(function() {
 			center_div.appendChild(pagination);
 				
 
-			for(var i=0; i<(key_list.length/4); i++){
+			for(var i=0; i<(my_offer_keys.length/4); i++){
 				//console.log(i+"th page button is made");
 				if(i==n)
 					$(".ui.pagination.menu").append("<a id='page"+i+"' class='active item'>"+(i+1)+"</a>");
@@ -98,7 +117,9 @@ $(document).ready(function() {
 				});	
 			}
 		}).then(function (){
-			document.getElementById('loader').remove();
+			if(document.getElementById('loader')!=null){
+				document.getElementById('loader').remove();
+			}
 		});
 	}
 

@@ -10,6 +10,17 @@ $(document).ready(function() {
 
 
     show_nth_page = function(n){ /* n is active page number(0,1,...) */
+    	
+    	/* loader */
+        // let new_loader = document.createElement('div');
+        // new_loader.className = "ui active inverted dimmer";
+        // new_loader.setAttribute('id', 'loader');
+
+        // let new_loader_inline = document.createElement('div');
+        // new_loader_inline.className = "ui active centered inline loader";
+        // new_loader.appendChild(new_loader_inline);
+        // $("#table_header").after(new_loader);
+
     	return database.ref("/Offers/").once("value", function(snapshot) {
 
 	    	var value = snapshot.val();
@@ -26,7 +37,7 @@ $(document).ready(function() {
 					my_offer_keys[j++]=keys[i];
 				}
 			}
-			console.log(my_offer_keys.length);
+			//console.log(my_offer_keys.length);
 
 	    	var bottom = my_offer_keys.length-5-(4*n);
 	    	if(bottom < -1){
@@ -40,7 +51,7 @@ $(document).ready(function() {
 
 	    	for(var i=(my_offer_keys.length-1-(4*n)); i>bottom; i--){
 				var entry = value[my_offer_keys[i]];
-				console.log(entry);
+				//console.log(entry);
 			
 				let new_container = document.createElement('div');
 				new_container.className = "ui container segment offer";
@@ -73,8 +84,7 @@ $(document).ready(function() {
 		        	day_and_time.appendChild(new_time);
 				});
 		        
-		        new_middle_row.appendChild(day_and_time);
-				//console.log(entry);	
+		        new_middle_row.appendChild(day_and_time);	
 				
 			}
 
@@ -106,7 +116,9 @@ $(document).ready(function() {
 			}
 
 		}).then(function (){
-			document.getElementById('loader').remove();
+			if(document.getElementById('loader')!=null){
+				document.getElementById('loader').remove();
+			}
 		});
 
 	}
