@@ -530,13 +530,13 @@ $(document).ready(function() {
 
             if(day === "" || start === "" || end === ""){
                 isValid = false;
-                if (i % 10 === 0 && i % 100 === 10){
+                if (i % 10 === 0 && i % 100 !== 10){
                     errorlist.push((i + 1) + 'st worktime is blank');
                 }
-                else if (i % 10 === 1 && i % 100 === 11){
+                else if (i % 10 === 1 && i % 100 !== 11){
                     errorlist.push((i + 1) + 'nd worktime is blank');
                 }
-                else if (i % 10 === 2 && i % 100 === 12){
+                else if (i % 10 === 2 && i % 100 !== 12){
                     errorlist.push((i + 1) + 'rd worktime is blank');
                 }
                 else{
@@ -545,13 +545,13 @@ $(document).ready(function() {
             }
             if(start !== "" && end !== "" && start >= end){
                 isValid = false;
-                if (i % 10 === 0 && i % 100 === 10){
+                if (i % 10 === 0 && i % 100 !== 10){
                     errorlist.push('End time of ' + (i + 1) + 'st worktime is faster than start time');
                 }
-                else if (i % 10 === 1 && i % 100 === 11){
+                else if (i % 10 === 1 && i % 100 !== 11){
                     errorlist.push('End time of ' + (i + 1) + 'nd worktime is faster than start time');
                 }
-                else if (i % 10 === 2 && i % 100 === 12){
+                else if (i % 10 === 2 && i % 100 !== 12){
                     errorlist.push('End time of ' + (i + 1) + 'rd worktime is faster than start time');
                 }
                 else{
