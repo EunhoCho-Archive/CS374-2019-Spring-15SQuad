@@ -14,16 +14,16 @@ $(document).ready(function() {
 
     if(isNegoOfNego){
         databaseRef = 'Negotiations/samplenegoid';
-        // const offerid = 'Negotiations/' + sessionStorage.getItem('offerid');
+        // databaseRef = 'Negotiations/' + sessionStorage.getItem('offerid');
     }
     else{
-        databaseRef = 'Offers/sampleofferid';
-        // const offerid = 'Offers/' + sessionStorage.getItem('offerid');
+        databaseRef = 'Offers/' + sessionStorage.getItem('offerid');
     }
 
     let offerOwner = undefined;
 
     // Initialize based on offer
+    let formdiv = document.getElementById('formdiv');
     database.ref(databaseRef).once('value', function(snapshot){
         document.getElementById('start_date').setAttribute('value', snapshot.val().start);
         document.getElementById('end_date').setAttribute('value', snapshot.val().end);
@@ -154,6 +154,8 @@ $(document).ready(function() {
         else{
             document.getElementById('inAndOutIcon').className = "icon sign-out";
         }
+    }).then(function(){
+        document.getElementById('loader').remove();
     });
 
     /// After press delete time button

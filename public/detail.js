@@ -9,8 +9,7 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     let database = firebase.database();
 
-    const offerid = 'sampleofferid';
-    // const offerid = sessionStorage.getItem('offerid');
+    const offerid = sessionStorage.getItem('offerid');
 
     database.ref('Offers/' + offerid).once('value', function(snapshot){
         let start_date = snapshot.val().start.split('-');
@@ -90,6 +89,8 @@ $(document).ready(function() {
         buttonarea.appendChild(buttonDiv);
         buttonarea.appendChild(secondButton);
 
+    }).then(function(){
+        document.getElementById('loader').remove();
     });
 
     // Section for Accept button

@@ -7,8 +7,7 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     let database = firebase.database();
 
-    const offerid = 'sampleofferid';
-    // const offerid = sessionStorage.getItem('offerid');
+    const offerid = sessionStorage.getItem('offerid');
 
 
     // Initialize based on offer
@@ -133,6 +132,8 @@ $(document).ready(function() {
         plusButton.className = "one field";
         plusButton.innerHTML = "<button id=\"more_time\" class=\"yellow circular ui icon button\"><i class=\"icon plus\"></i></button>";
         worktimes.lastChild.appendChild(plusButton);
+    }).then(function(){
+        document.getElementById('loader').remove();
     });
 
     /// After press delete time button
