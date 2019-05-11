@@ -128,7 +128,7 @@ $(document).ready(function() {
                 location.href = '/detail.html';
             }
         }
-        else if(type === "Negotiation"){
+        else if(type === "Negotiate"){
             let reallysubmit = confirm('Do you really want to negotiate like this?');
             if(reallysubmit){
                 const from = sessionStorage.getItem('from');
@@ -141,7 +141,8 @@ $(document).ready(function() {
                     negotiation: isNego,
                     to: to,
                     from: from,
-                    madeBy: 'Me'
+                    madeBy: 'Me',
+                    status: 'Negotiation Received'
                 });
 
                 for (let i = 0; i < times.length; i++) {

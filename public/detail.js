@@ -173,7 +173,7 @@ $(document).ready(function() {
             mainform.appendChild(statusHeader);
 
             let statusField = document.createElement('div');
-            statusField.className = "inline fields"
+            statusField.className = "inline fields";
 
             let blankField = document.createElement('div');
             blankField.className = "two wide field";
@@ -181,7 +181,12 @@ $(document).ready(function() {
 
             let mainStatus = document.createElement('div');
             mainStatus.className = "two wide field";
-            mainStatus.innerHTML = "<h3>" + snapshot.val().status + "</h3>"
+            if (snapshot.val().status === 'Negotiation Received' && snapshot.val().madeBy === 'Me'){
+                mainStatus.innerHTML = "<h3>" + "Negotiation Sent" + "</h3>";
+            }
+            else{
+                mainStatus.innerHTML = "<h3>" + snapshot.val().status + "</h3>";
+            }
             statusField.appendChild(mainStatus);
 
             let buttonarea = document.getElementById('offerButtons');
