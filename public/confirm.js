@@ -127,7 +127,39 @@ $(document).ready(function() {
             }
         }
         else if(type === "Negotiation"){
+            let reallysubmit = confirm('Do you really want to negotiate like this?');
+            if(reallysubmit){
+                const from = sessionStorage.getItem('from');
+                const to = sessionStorage.getItem('to');
 
+                let negoKey = database.ref('Negotiations').push();
+                negoKey.set({
+                    start: startDate,
+                    end: endDate,
+                    negotiation: isNego,
+                    to: to,
+                    from: from,
+                    madeBy: 'Me'
+                });
+
+                for (let i = 0; i < times.length; i++) {
+                    let targetTime = times[i];
+                    let timeKey = database.ref('Negotiations/' + negoKey.key + '/time').push();
+                    timeKey.set({
+                        day: targetTime[0],
+                        start: targetTime[1],
+                        end: targetTime[2]
+                    })
+                }
+
+                sessionStorage.clear();
+                sessionStorage.setItem('negoid', "");
+                alert('Successfully modified!');
+                location.href = '/negodetail.html';
+            }
+        }
+        else{
+            location.href = '/404.html';
         }
     });
 });
