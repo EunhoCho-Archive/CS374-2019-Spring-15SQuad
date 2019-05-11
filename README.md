@@ -21,3 +21,7 @@ To deal with **seasonal leftover workforce**, small business owners nearby unive
 - [./public/mynego.html](https://github.com/proseuche/15SQuad/blob/master/public/mynego.html)  [./public/mynego.js](https://github.com/proseuche/15SQuad/blob/master/public/mynego.js)
   * My Negotiations page that lists my negotiations.
   * By clicking on a negotiation, users can view negotiation details.
+
+
+## Acknowledgements
+[Firebase](https://firebase.google.com/) and [Semantic UI](https://semantic-ui.com/) were used.
