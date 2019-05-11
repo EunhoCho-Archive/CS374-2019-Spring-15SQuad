@@ -12,6 +12,15 @@ $(document).ready(function() {
     const offerid = sessionStorage.getItem('offerid');
 
     database.ref('Offers/' + offerid).once('value', function(snapshot){
+        const offerOwner = snapshot.val().user;
+
+        if (offerOwner !== "Me"){
+            document.getElementById('inAndOutIcon').className = "icon sign-in";
+        }
+        else{
+            document.getElementById('inAndOutIcon').className = "icon sign-out";
+        }
+
         let start_date = snapshot.val().start.split('-');
         document.getElementById('start_date').innerHTML = "<h3>" + start_date[0] + ". " + start_date[1] + ". " + start_date[2] + "</h3>";
         let end_date = snapshot.val().end.split('-');
