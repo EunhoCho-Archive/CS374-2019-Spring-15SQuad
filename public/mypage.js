@@ -20,7 +20,8 @@ $(document).ready(function() {
 				var entry = my_value[key_list[i]];
 				if (entry.user === "Me") {
 					let new_container = document.createElement('div');
-					new_container.className = "ui container segment";
+					new_container.className = "ui container segment offer";
+					new_container.setAttribute('id', key_list[i]);
 
 					let new_col_grid = document.createElement('div');
 					new_col_grid.className = "ui two column stackable center aligned grid";
@@ -60,6 +61,13 @@ $(document).ready(function() {
 			document.getElementById('loader').remove();
 		});
 	}
+
+	$(document).on('click', '.offer', function(){
+		let offerid = this.getAttribute('id');
+		console.log(offerid);
+		sessionStorage.setItem('offerid', offerid);
+		location.href = '/detail.html';
+	});
 
 	show_all_entries();
 
