@@ -81,7 +81,9 @@ $(document).ready(function() {
             document.getElementById('loader').remove();
         }
         else {
-            const databaseRef = sessionStorage.getItem('databaseRef');
+            const detailtype = sessionStorage.getItem('detailtype');
+            const detailid = sessionStorage.getItem('detailid');
+            const databaseRef = detailtype + '/' + detailid;
 
             if (type === 'Modify') {
                 document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Enrollment Modification";
