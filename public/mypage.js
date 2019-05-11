@@ -10,7 +10,7 @@ $(document).ready(function() {
 
 
     show_nth_page = function(n){ /* n is active page number(0,1,...) */
-    	
+
     	/* loader */
         // let new_loader = document.createElement('div');
         // new_loader.className = "ui active inverted dimmer";
@@ -58,13 +58,13 @@ $(document).ready(function() {
 	    		new_container.setAttribute('id', my_offer_keys[i]);
 				entries_div.appendChild(new_container);
 
-				let new_three_col_grid = document.createElement('div');
-				new_three_col_grid.className = "ui two column stackable center aligned grid";
-				new_container.appendChild(new_three_col_grid);
+				let new_col_grid = document.createElement('div');
+				new_col_grid.className = "ui two column stackable center aligned grid";
+				new_container.appendChild(new_col_grid);
 
 				let new_middle_row = document.createElement('div');
 				new_middle_row.className = "middle aligned row";
-				new_three_col_grid.appendChild(new_middle_row);
+				new_col_grid.appendChild(new_middle_row);
 
 				let period= document.createElement('div');
 				period.className = "column";
