@@ -89,6 +89,8 @@ $(document).ready(function() {
         buttonarea.appendChild(buttonDiv);
         buttonarea.appendChild(secondButton);
 
+    }).then(function(){
+        document.getElementById('loader').remove();
     });
 
     // Section for Accept button
