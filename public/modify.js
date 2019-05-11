@@ -133,6 +133,7 @@ $(document).ready(function() {
         plusButton.innerHTML = "<button id=\"more_time\" class=\"yellow circular ui icon button\"><i class=\"icon plus\"></i></button>";
         worktimes.lastChild.appendChild(plusButton);
 
+        const date = new Date();
         let currentTime = date.getFullYear() + '-';
         if(date.getMonth() < 9){
             currentTime = currentTime + '0' + (date.getMonth() + 1) + '-';
@@ -327,28 +328,25 @@ $(document).ready(function() {
         }
 
         if(isValid){
-            let reallysubmit = confirm('Do you really want to modify like this?');
-            if(reallysubmit){
-                database.ref('Offers/' + offerid).set({
-                    start: startDate,
-                    end: endDate,
-                    negotiation: isNego,
-                    user: 'Me',
-                });
+            sessionStorage.setItem('confirmWhat', 'Modify');
+            sessionStorage.setItem('name', document.getElementById('name').innerHTML);
+            sessionStorage.setItem('start_date', startDate);
+            sessionStorage.setItem('end_date', endDate);
+            sessionStorage.setItem('negotiation', isNego);
 
-                database.ref('Offers/' + offerid + '/time').remove();
-                for(let i = 0; i < worktimes.childNodes.length; i++){
-                    let targetTime = worktimes.childNodes.item(i);
-                    let timeKey = database.ref('Offers/' + offerid + '/time').push();
-                    timeKey.set({
-                        day: targetTime.childNodes.item(1).lastChild.value,
-                        start: targetTime.childNodes.item(2).lastChild.value,
-                        end: targetTime.childNodes.item(4).lastChild.value
-                    })
-                }
-                alert('Successfully modified!');
-                location.href = '/detail.html';
+            let times = [];
+
+            for(let i = 0; i < worktimes.childNodes.length; i++){
+                let targetTime = worktimes.childNodes.item(i);
+                let singleTime = [];
+                singleTime.push(targetTime.childNodes.item(1).lastChild.value);
+                singleTime.push(targetTime.childNodes.item(2).lastChild.value);
+                singleTime.push(targetTime.childNodes.item(4).lastChild.value);
+                times.push(singleTime);
             }
+            sessionStorage.setItem('times', JSON.stringify(times));
+
+            location.href = '/confirm.html';
         }
         else{
             let form = document.getElementById('form');

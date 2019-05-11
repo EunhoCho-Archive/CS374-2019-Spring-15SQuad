@@ -155,6 +155,7 @@ $(document).ready(function() {
             document.getElementById('inAndOutIcon').className = "icon sign-out";
         }
 
+        const date = new Date();
         let currentTime = date.getFullYear() + '-';
         if(date.getMonth() < 9){
             currentTime = currentTime + '0' + (date.getMonth() + 1) + '-';
@@ -349,30 +350,27 @@ $(document).ready(function() {
         }
 
         if(isValid){
-            let reallysubmit = confirm('Do you really want to negotiate like this?');
-            if(reallysubmit){
-                let negoKey = database.ref('Negotiations').push();
-                negoKey.set({
-                    start: startDate,
-                    end: endDate,
-                    negotiation: isNego,
-                    to: 'Me',
-                    from: offerOwner,
-                    madeBy: 'Me'
-                });
+            sessionStorage.setItem('confirmWhat', 'Negotiation');
+            sessionStorage.setItem('name', document.getElementById('name').innerHTML);
+            sessionStorage.setItem('start_date', startDate);
+            sessionStorage.setItem('end_date', endDate);
+            sessionStorage.setItem('negotiation', isNego);
+            sessionStorage.setItem('from', offerOwner);
+            sessionStorage.setItem('to', 'Me');
 
-                for(let i = 0; i < worktimes.childNodes.length; i++){
-                    let targetTime = worktimes.childNodes.item(i);
-                    let timeKey = database.ref('Negotiations/' + negoKey.key + '/time').push();
-                    timeKey.set({
-                        day: targetTime.childNodes.item(1).lastChild.value,
-                        start: targetTime.childNodes.item(2).lastChild.value,
-                        end: targetTime.childNodes.item(4).lastChild.value
-                    })
-                }
-                alert('Successfully sent negotiation!');
-                location.href = '/';
+            let times = [];
+
+            for(let i = 0; i < worktimes.childNodes.length; i++){
+                let targetTime = worktimes.childNodes.item(i);
+                let singleTime = [];
+                singleTime.push(targetTime.childNodes.item(1).lastChild.value);
+                singleTime.push(targetTime.childNodes.item(2).lastChild.value);
+                singleTime.push(targetTime.childNodes.item(4).lastChild.value);
+                times.push(singleTime);
             }
+            sessionStorage.setItem('times', JSON.stringify(times));
+
+            location.href = '/confirm.html';
         }
         else{
             let form = document.getElementById('form');

@@ -46,6 +46,7 @@ $(document).ready(function() {
 
         worktimes.appendChild(newtime);
 
+        let date = new Date();
         let currentTime = date.getFullYear() + '-';
         if(date.getMonth() < 9){
             currentTime = currentTime + '0' + (date.getMonth() + 1) + '-';
@@ -246,28 +247,25 @@ $(document).ready(function() {
         }
 
         if(isValid){
-            let reallysubmit = confirm('Do you really want to enroll like this?');
-            if(reallysubmit){
-                let enrollKey = database.ref('Offers').push();
-                enrollKey.set({
-                    start: startDate,
-                    end: endDate,
-                    negotiation: isNego,
-                    user: 'Me',
-                });
+            sessionStorage.setItem('confirmWhat', 'Enroll');
+            sessionStorage.setItem('name', document.getElementById('name').innerHTML);
+            sessionStorage.setItem('start_date', startDate);
+            sessionStorage.setItem('end_date', endDate);
+            sessionStorage.setItem('negotiation', isNego);
 
-                for(let i = 0; i < worktimes.childNodes.length; i++){
-                    let targetTime = worktimes.childNodes.item(i);
-                    let timeKey = database.ref('Offers/' + enrollKey.key + '/time').push();
-                    timeKey.set({
-                        day: targetTime.childNodes.item(1).lastChild.value,
-                        start: targetTime.childNodes.item(2).lastChild.value,
-                        end: targetTime.childNodes.item(4).lastChild.value
-                    })
-                }
-                alert('Successfully enrolled!');
-                location.href = '/';
+            let times = [];
+
+            for(let i = 0; i < worktimes.childNodes.length; i++){
+                let targetTime = worktimes.childNodes.item(i);
+                let singleTime = [];
+                singleTime.push(targetTime.childNodes.item(1).lastChild.value);
+                singleTime.push(targetTime.childNodes.item(2).lastChild.value);
+                singleTime.push(targetTime.childNodes.item(4).lastChild.value);
+                times.push(singleTime);
             }
+            sessionStorage.setItem('times', JSON.stringify(times));
+
+            location.href = '/confirm.html';
         }
         else{
             let form = document.getElementById('form');
