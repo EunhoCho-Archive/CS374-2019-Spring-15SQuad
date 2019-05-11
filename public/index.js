@@ -75,14 +75,6 @@ $(document).ready(function() {
 		location.href = '/detail.html';
 	});
 
-	function add_links(){
-		let mainTable = document.getElementById('mainTable');
-		for(let i = 1; i < mainTable.childNodes.length; i++){
-			let targetOffer = mainTable.childNodes[i];
-
-		}
-	}
-
 	show_all_entries();
 
     

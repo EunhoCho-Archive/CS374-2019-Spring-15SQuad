@@ -31,14 +31,14 @@ $(document).ready(function() {
 					new_col_grid.appendChild(new_middle_row);
 
 					let period= document.createElement('div');
-					period.className = "nine wide column";
+					period.className = "column";
 					let start_date = entry.start.split('-');
 					let end_date = entry.end.split('-');
         			period.innerHTML = "<h2>" + start_date[0] + ". " + start_date[1] + ". " + start_date[2] + " ~ " + end_date[0] + ". " + end_date[1] + ". " + end_date[2] + "</h2>";
         			new_middle_row.appendChild(period);
 
 					let day_and_time = document.createElement('div');
-					day_and_time.className = "three wide column";
+					day_and_time.className = "column";
 
 					snapshot.child(key_list[i]).child('time').forEach(function(data){
 						let new_time = document.createElement('h2');
