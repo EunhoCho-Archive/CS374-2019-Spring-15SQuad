@@ -179,11 +179,11 @@ $(document).ready(function() {
             statusField.className = "inline fields";
 
             let blankField = document.createElement('div');
-            blankField.className = "six wide field";
+            blankField.className = "two wide field";
             statusField.appendChild(blankField);
 
             let mainStatus = document.createElement('div');
-            mainStatus.className = "two wide field";
+            mainStatus.className = "ten wide field";
             if (snapshot.val().status === 'Negotiation Received' && snapshot.val().madeBy === 'Me'){
                 mainStatus.innerHTML = "<h3>" + "Negotiation Sent" + "</h3>";
             }
