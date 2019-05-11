@@ -9,7 +9,7 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     let database = firebase.database();
 
-    const detailtype = sessionStorage.getItem('detailtype);
+    const detailtype = sessionStorage.getItem('detailtype');
     const detailid = sessionStorage.getItem('detailid');
     const databaseRef = detailtype + '/' + detailid;
 
