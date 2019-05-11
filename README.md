@@ -12,7 +12,7 @@ To deal with **seasonal leftover workforce**, small business owners nearby unive
 - [./public/index.html](https://github.com/proseuche/15SQuad/blob/master/public/index.html)  [./public/index.css](https://github.com/proseuche/15SQuad/blob/master/public/index.css)  [./public/index.js](https://github.com/proseuche/15SQuad/blob/master/public/index.js)
   * Main page that lists others' offers.
   * By clicking on an offer, users can send negotiations.
-- [./public/enroll.html](https://github.com/proseuche/15SQuad/blob/master/public/enroll.html)  [./public/enroll.js](https://github.com/proseuche/15SQuad/blob/master/public/enroll.js)
+- [./public/enroll.html](https://github.com/proseuche/15SQuad/blob/master/public/enroll.html)  [./public/offer.js](https://github.com/proseuche/15SQuad/blob/master/public/enroll.js)
   * Enrollment page to enroll a new offer.
   * By clicking on an offer, users can view offer details.
 - [./public/mypage.html](https://github.com/proseuche/15SQuad/blob/master/public/mypage.html)  [./public/mypage.js](https://github.com/proseuche/15SQuad/blob/master/public/mypage.js)
