@@ -101,4 +101,38 @@ $(document).ready(function() {
     }).then(function(){
         document.getElementById('loader').remove();
     });
+
+    // Section for Accept button
+    $(document).on('click', "#accept", function(){
+        let reallyaccept = confirm('Do you really want to accept this offer?');
+        if(reallyaccept){
+            alert('Offer accepted');
+            location.href = "/";
+        }
+        // Not implemented whole accept process yet.
+    });
+
+    // Section for Delete button
+    $(document).on('click', "#delete", function(){
+        let reallyaccept = confirm('Do you really want to delete this offer?');
+        if(reallyaccept){
+            alert('Successfully deleted');
+            location.href = "/";
+        }
+        // Not implemented whole delete process yet.
+    });
+
+    // Section for Modification button
+    $(document).on('click', "#modify", function(){
+        sessionStorage.setItem('type', 'NegoModify');
+        location.href = '/enroll.html';
+    });
+
+    // Section for Negotiation button
+    $(document).on('click', "#negotiate", function(){
+        sessionStorage.setItem('type', 'Negotiate');
+        sessionStorage.setItem('negofrom', 'Nego');
+        location.href = '/negotiation.html';
+    });
+
 });
