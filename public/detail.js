@@ -31,7 +31,7 @@ $(document).ready(function() {
             let isPossible = snapshot.val().negotiation;
             const trueradio = document.getElementById('isNegoTrue');
             const falseradio = document.getElementById('isNegoFalse');
-            if(isPossible){
+            if(isPossible === "true"){
                 trueradio.setAttribute('checked', "");
                 falseradio.setAttribute('disabled', 'disabled');
             }
@@ -94,6 +94,9 @@ $(document).ready(function() {
                 firstButton.setAttribute('id', 'accept');
                 secondButton.innerText = "Negotiate";
                 secondButton.setAttribute('id', 'negotiate');
+                if(!isPossible){
+                    secondButton.className += "disabled";
+                }
             }
 
             buttonarea.appendChild(firstButton);
@@ -197,7 +200,7 @@ $(document).ready(function() {
             let secondButton = document.createElement('button');
             secondButton.className = "ui yellow button";
 
-            if (userid === snapshot.val().user){
+            if (userid === snapshot.val().madeBy){
                 firstButton.innerText = "Delete";
                 firstButton.setAttribute('id', 'delete');
                 secondButton.innerText = "Modify";
@@ -208,6 +211,9 @@ $(document).ready(function() {
                 firstButton.setAttribute('id', 'accept');
                 secondButton.innerText = "Negotiate";
                 secondButton.setAttribute('id', 'negotiate');
+                if(!isPossible){
+                    secondButton.className += "disabled";
+                }
             }
 
             buttonarea.appendChild(firstButton);
