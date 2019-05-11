@@ -11,7 +11,7 @@ $(document).ready(function() {
     let database = firebase.database();
 
     // Show all entries from Firebase
-	show_all_entries = function(){
+	function show_all_entries(){
 		return database.ref("/Offers/").once("value", function(snapshot) {
 			var my_value = snapshot.val();
 			if(my_value == null){
@@ -23,15 +23,12 @@ $(document).ready(function() {
 				var entry = my_value[key_list[i]];
 
 				let new_container = document.createElement('div');
-				new_container.className = "ui container segment";
-				
-				let new_form = document.createElement('div');
-				new_form.className = "ui form";
-				new_container.appendChild(new_form);
+				new_container.className = "ui container segment offer";
+				new_container.setAttribute('id', key_list[i]);
 
 				let new_three_col_grid = document.createElement('div');
 				new_three_col_grid.className = "ui three column stackable center aligned grid";
-				new_form.appendChild(new_three_col_grid);
+				new_container.appendChild(new_three_col_grid);
 
 				let new_middle_row = document.createElement('div');
 				new_middle_row.className = "middle aligned row";
@@ -69,7 +66,21 @@ $(document).ready(function() {
 		}).then(function (){
 			document.getElementById('loader').remove();
 		});
-	};
+	}
+
+	$(document).on('click', '.offer', function(){
+		let offerid = $(this).id;
+		sessionStorage.setItem('offerid', offerid);
+		location.href = '/detail.html';
+	});
+
+	function add_links(){
+		let mainTable = document.getElementById('mainTable');
+		for(let i = 1; i < mainTable.childNodes.length; i++){
+			let targetOffer = mainTable.childNodes[i];
+
+		}
+	}
 
 	show_all_entries();
 

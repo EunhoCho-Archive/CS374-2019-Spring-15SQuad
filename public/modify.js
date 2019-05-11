@@ -7,8 +7,7 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     let database = firebase.database();
 
-    const offerid = 'sampleofferid';
-    // const offerid = sessionStorage.getItem('offerid');
+    const offerid = sessionStorage.getItem('offerid');
 
 
     // Initialize based on offer

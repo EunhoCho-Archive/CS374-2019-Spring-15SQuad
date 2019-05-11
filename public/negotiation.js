@@ -14,11 +14,10 @@ $(document).ready(function() {
 
     if(isNegoOfNego){
         databaseRef = 'Negotiations/samplenegoid';
-        // const offerid = 'Negotiations/' + sessionStorage.getItem('offerid');
+        // databaseRef = 'Negotiations/' + sessionStorage.getItem('offerid');
     }
     else{
-        databaseRef = 'Offers/sampleofferid';
-        // const offerid = 'Offers/' + sessionStorage.getItem('offerid');
+        databaseRef = 'Offers/' + sessionStorage.getItem('offerid');
     }
 
     let offerOwner = undefined;
