@@ -166,4 +166,9 @@ $(document).ready(function() {
             location.href = '/404.html';
         }
     });
+
+    // Section for Cancel button
+    $(document).on('click', "#cancel", function(){
+        history.back();
+    });
 });
