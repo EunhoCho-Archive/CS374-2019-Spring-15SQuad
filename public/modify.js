@@ -267,10 +267,10 @@ $(document).ready(function() {
 
             if(day === "" || start === "" || end === ""){
                 isValid = false;
-                if (i % 10 === 1 && i % 100 === 11){
+                if (i % 10 === 0 && i % 100 === 10){
                     errorlist.push(i + 'st worktime is blank');
                 }
-                else if (i % 10 === 2 && i % 100 === 12){
+                else if (i % 10 === 1 && i % 100 === 11){
                     errorlist.push(i + 'nd worktime is blank');
                 }
                 else if (i % 10 === 2 && i % 100 === 12){
