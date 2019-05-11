@@ -125,13 +125,13 @@ $(document).ready(function() {
     // Section for Modification button
     $(document).on('click', "#modify", function(){
         sessionStorage.setItem('type', 'Modify');
-        location.href = '/enroll.html';
+        location.href = '/offeroffer.html';
     });
 
     // Section for Negotiation button
     $(document).on('click', "#negotiate", function(){
         sessionStorage.setItem('type', 'Negotiate');
         sessionStorage.setItem('negofrom', 'Offer');
-        location.href = '/enroll.html';
+        location.href = '/offer.html';
     });
 });
