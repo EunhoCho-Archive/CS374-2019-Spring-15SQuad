@@ -81,16 +81,7 @@ $(document).ready(function() {
             document.getElementById('loader').remove();
         }
         else {
-            let databaseRef = undefined;
-
-            if (type === 'Modify' || (type === "Negotiate" && sessionStorage.getItem('negofrom') === "Offer")) {
-                databaseRef = 'Offers/' + sessionStorage.getItem('offerid');
-            } else if (type === 'NegoModify' || (type === "Negotiate" && sessionStorage.getItem('negofrom') === "Nego")) {
-                databaseRef = 'Negotiations/' + sessionStorage.getItem('negoid');
-            }
-            else {
-                location.href = '/404.html';
-            }
+            const databaseRef = sessionStorage.getItem('databaseRef');
 
             if (type === 'Modify') {
                 document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Enrollment Modification";
@@ -233,7 +224,7 @@ $(document).ready(function() {
 
             } else if (type === 'Negotiate') {
                 database.ref(databaseRef).once('value', function (snapshot) {
-                    if(sessionStorage.getItem('negofrom') === "Nego"){
+                    if(sessionStorage.getItem('detailtype') === "Negotiations"){
                         offerOwner = snapshot.val().from;
                     }
                     else{
@@ -384,7 +375,7 @@ $(document).ready(function() {
                 });
             } else if (type === 'NegoModify') {
                 let offerOwner = undefined;
-                if(sessionStorage.getItem('negofrom') === "Nego"){
+                if(sessionStorage.getItem('detailtype') === "Negotiations"){
                     offerOwner = snapshot.val().from;
                 }
                 else{
@@ -398,6 +389,9 @@ $(document).ready(function() {
                 }
 
 
+            }
+            else {
+                location.href = '/404.html';
             }
         }
     }

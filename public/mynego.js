@@ -161,7 +161,8 @@ $(document).ready(function() {
 
 	$(document).on('click', '.nego', function(){
 		let negoid = this.getAttribute('id');
-		sessionStorage.setItem('negoid', negoid);
+		sessionStorage.setItem('detailtype', 'Negotiations');
+		sessionStorage.setItem('detailid', negoid);
 		location.href = '/detail.html';
 	});
 

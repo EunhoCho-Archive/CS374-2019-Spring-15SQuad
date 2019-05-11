@@ -93,7 +93,8 @@ $(document).ready(function() {
                 }
 
                 sessionStorage.clear();
-                sessionStorage.setItem('offerid', enrollKey.key);
+                sessionStorage.setItem('detailtype', 'Offers');
+                sessionStorage.setItem('detailid', enrollKey.key);
                 alert('Successfully enrolled!');
                 location.href = '/detail.html';
             }
@@ -121,7 +122,8 @@ $(document).ready(function() {
                 }
 
                 sessionStorage.clear();
-                sessionStorage.setItem('offerid', offerid);
+                sessionStorage.setItem('detailtype', 'Offers');
+                sessionStorage.setItem('detailid', offerid);
                 alert('Successfully modified!');
                 location.href = '/detail.html';
             }
@@ -153,9 +155,10 @@ $(document).ready(function() {
                 }
 
                 sessionStorage.clear();
-                sessionStorage.setItem('negoid', negoKey.key);
+                sessionStorage.setItem('detailtype', 'Negotiations');
+                sessionStorage.setItem('detailid', negoKey.key);
                 alert('Successfully modified!');
-                location.href = '/negodetail.html';
+                location.href = '/detail.html';
             }
         }
         else{
