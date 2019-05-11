@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bizmon-Enrollment</title>
+    <title>Bizmon-Confirmation</title>
     <link rel="stylesheet" type="text/css" href="./semantic.css">
     <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -42,25 +42,21 @@
     </div>
     <!-- ------------------- -->
     <div class="ui grid">
-        <div class="two wide column"></div>
+        <div class="two wide column"></div></div>
         <div class="twelve wide column">
-            <div id="form" class="ui container segment">
+            <div class="ui container segment">
                 <div class="ui form">
-                    <h1 id="name"><i class="icon sign-out"></i>Enrollment</h1>
+                    <h1 id="name"></h1>
                     <h2 class="yellow ui dividing header">Workday</h2>
                     <div class="inline fields">
                         <div class="one wide field"></div>
                         <h3 class="one wide field">Starts</h3>
-                        <div class="three wide field">
-                            <input id="start_date" type="date" min="2019-05-08">
-                        </div>
+                        <div id="start_date" class="three wide field"></div>
                     </div>
                     <div class="inline fields">
                         <div class="one wide field"></div>
                         <h3 class="one wide field">Ends</h3>
-                        <div class="three wide field">
-                            <input id="end_date" type="date" min="2019-05-08">
-                        </div>
+                        <div id="end_date" class="three wide field"></div>
                     </div>
                     <h2 class="yellow ui dividing header">Worktime</h2>
                     <div id="worktime"></div>
@@ -68,7 +64,7 @@
                     <div class="inline fields">
                         <div class="two wide field"></div>
                         <div class="one field">
-                            <div class="ui radio checkbox">
+                            <div class="ui read-only radio checkbox">
                                 <input type="radio" name="isPossible" id="isNegoTrue" value="true">
                                 <label></label>
                             </div>
@@ -77,7 +73,7 @@
                             <h3>Possible</h3>
                         </div>
                         <div class="one field">
-                            <div class="ui radio checkbox">
+                            <div class="ui read-only radio checkbox">
                                 <input type="radio" name="isPossible" id="isNegoFalse" value="false">
                                 <label></label>
                             </div>
@@ -101,6 +97,6 @@
             </div>
         </div>
     </div>
-    <script src="./enroll.js"></script>
+    <script src="./confirm.js"></script>
 </body>
 </html>
