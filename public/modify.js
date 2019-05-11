@@ -233,34 +233,128 @@ $(document).ready(function() {
 
     // Section for submit button & add form to firebase
     $(document).on('click', "#submit", function(){
-        let reallysubmit = confirm('Do you really want to submit like this?');
-        if(reallysubmit){
-            let worktimes = document.getElementById('worktime');
-            let startDate = document.getElementById('start_date').value;
-            let endDate = document.getElementById('end_date').value;
-            let isNego = true;
-            if (document.getElementById('isNegoFalse').checked){
-                isNego = false;
-            }
-            database.ref('Offers/' + offerid).set({
-                start: startDate,
-                end: endDate,
-                negotiation: isNego,
-                user: 'Me',
-            });
+        let em = document.getElementById('errorMessage');
+        if (em !== null){
+            em.remove();
+        }
+        // Check validation
+        let isValid = true;
+        let errorlist = [];
 
-            database.ref('Offers/' + offerid + '/time').remove();
-            for(let i = 0; i < worktimes.childNodes.length; i++){
-                let targetTime = worktimes.childNodes.item(i);
-                let timeKey = database.ref('Offers/' + offerid + '/time').push();
-                timeKey.set({
-                    day: targetTime.childNodes.item(1).lastChild.value,
-                    start: targetTime.childNodes.item(2).lastChild.value,
-                    end: targetTime.childNodes.item(4).lastChild.value
-                })
+        let startDate = document.getElementById('start_date').value;
+        if(startDate === ""){
+            isValid = false;
+            errorlist.push('Start workday is blank');
+        }
+
+        let endDate = document.getElementById('end_date').value;
+        if(endDate === ""){
+            isValid = false;
+            errorlist.push('End workday is blank');
+        }
+        if (startDate !== "" && endDate !== "" && startDate > endDate){
+            isValid = false;
+            errorlist.push('End workday is faster than start workday');
+        }
+
+
+        let worktimes = document.getElementById('worktime');
+        for(let i = 0; i < worktimes.childNodes.length; i++){
+            let targetTime = worktimes.childNodes.item(i);
+            let day = targetTime.childNodes.item(1).lastChild.value;
+            let start = targetTime.childNodes.item(2).lastChild.value;
+            let end = targetTime.childNodes.item(4).lastChild.value;
+
+            if(day === "" || start === "" || end === ""){
+                isValid = false;
+                if (i % 10 === 1 && i % 100 === 11){
+                    errorlist.push(i + 'st worktime is blank');
+                }
+                else if (i % 10 === 2 && i % 100 === 12){
+                    errorlist.push(i + 'nd worktime is blank');
+                }
+                else if (i % 10 === 2 && i % 100 === 12){
+                    errorlist.push(i + 'rd worktime is blank');
+                }
+                else{
+                    errorlist.push(i + 'th worktime is blank');
+                }
             }
-            alert('Successfully modified!');
-            location.href = '/detail.html';
+            if(start !== "" && end !== "" && start >= end){
+                isValid = false;
+                if (i % 10 === 0 && i % 100 === 10){
+                    errorlist.push('End time of ' + (i + 1) + 'st worktime is faster than start time');
+                }
+                else if (i % 10 === 1 && i % 100 === 11){
+                    errorlist.push('End time of ' + (i + 1) + 'nd worktime is faster than start time');
+                }
+                else if (i % 10 === 2 && i % 100 === 12){
+                    errorlist.push('End time of ' + (i + 1) + 'rd worktime is faster than start time');
+                }
+                else{
+                    errorlist.push('End time of ' + (i + 1) + 'th worktime is faster than start time');
+                }
+            }
+        }
+
+        let isNego = undefined;
+        if(document.getElementById('isNegoFalse').checked){
+            isNego = false;
+        }
+        else if(document.getElementById('isNegoTrue').checked){
+            isNego = true;
+        }
+        if(isNego === undefined){
+            isValid = false;
+            errorlist.push('Negotiation Possible? is blank');
+        }
+
+        if(isValid){
+            let reallysubmit = confirm('Do you really want to modify like this?');
+            if(reallysubmit){
+                database.ref('Offers/' + offerid).set({
+                    start: startDate,
+                    end: endDate,
+                    negotiation: isNego,
+                    user: 'Me',
+                });
+
+                database.ref('Offers/' + offerid + '/time').remove();
+                for(let i = 0; i < worktimes.childNodes.length; i++){
+                    let targetTime = worktimes.childNodes.item(i);
+                    let timeKey = database.ref('Offers/' + offerid + '/time').push();
+                    timeKey.set({
+                        day: targetTime.childNodes.item(1).lastChild.value,
+                        start: targetTime.childNodes.item(2).lastChild.value,
+                        end: targetTime.childNodes.item(4).lastChild.value
+                    })
+                }
+                alert('Successfully modified!');
+                location.href = '/detail.html';
+            }
+        }
+        else{
+            let form = document.getElementById('form');
+            let message = document.createElement('div');
+            message.className = "ui error message";
+            message.setAttribute('id', 'errorMessage');
+
+            let messageHeader = document.createElement('div');
+            messageHeader.className = "header";
+            messageHeader.innerText = "There were some errors with your submission";
+            message.appendChild(messageHeader);
+
+            let messagelist = document.createElement('ul');
+            messagelist.className = "list";
+
+            for(let i = 0; i < errorlist.length; i++){
+                let singleitem = document.createElement('li');
+                singleitem.innerText = errorlist[i];
+                messagelist.appendChild(singleitem);
+            }
+
+            message.appendChild(messagelist);
+            form.appendChild(message);
         }
     });
 
