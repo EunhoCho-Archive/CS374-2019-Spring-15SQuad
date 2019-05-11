@@ -32,7 +32,8 @@ $(document).ready(function() {
 				var entry = value[key_list[i]];
 
 				let new_container = document.createElement('div');
-				new_container.className = "ui container segment";
+				new_container.className = "ui container segment offer";
+        new_container.setAttribute('id', key_list[i]);
 				entries_div.appendChild(new_container);
 
 				let new_three_col_grid = document.createElement('div');
@@ -96,8 +97,17 @@ $(document).ready(function() {
 					}	
 				});	
 			}
+		}).then(function (){
+			document.getElementById('loader').remove();
 		});
-    }
+	}
 
+	$(document).on('click', '.offer', function(){
+		let offerid = this.getAttribute('id');
+		console.log(offerid);
+		sessionStorage.setItem('offerid', offerid);
+		location.href = '/detail.html';
+	});
+  
 	show_nth_page(0);
 });
