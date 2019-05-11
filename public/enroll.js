@@ -190,16 +190,16 @@ $(document).ready(function() {
             if(day === "" || start === "" || end === ""){
                 isValid = false;
                 if (i % 10 === 0 && i % 100 === 10){
-                    errorlist.push(i + 'st worktime is blank');
+                    errorlist.push((i + 1) + 'st worktime is blank');
                 }
                 else if (i % 10 === 1 && i % 100 === 11){
-                    errorlist.push(i + 'nd worktime is blank');
+                    errorlist.push((i + 1) + 'nd worktime is blank');
                 }
                 else if (i % 10 === 2 && i % 100 === 12){
-                    errorlist.push(i + 'rd worktime is blank');
+                    errorlist.push((i + 1) + 'rd worktime is blank');
                 }
                 else{
-                    errorlist.push(i + 'th worktime is blank');
+                    errorlist.push((i + 1) + 'th worktime is blank');
                 }
             }
             if(start !== "" && end !== "" && start >= end){
