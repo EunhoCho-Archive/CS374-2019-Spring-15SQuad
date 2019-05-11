@@ -153,7 +153,7 @@ $(document).ready(function() {
                 }
 
                 sessionStorage.clear();
-                sessionStorage.setItem('negoid', "");
+                sessionStorage.setItem('negoid', negoKey.key);
                 alert('Successfully modified!');
                 location.href = '/negodetail.html';
             }

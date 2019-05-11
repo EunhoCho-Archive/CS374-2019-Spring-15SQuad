@@ -8,7 +8,7 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     let database = firebase.database();
 
-    show_nth_page = function(n){ /* n is active page number (0,1,...) */
+    function show_nth_page(n){ /* n is active page number (0,1,...) */
  
  		/* loader */
         // let new_loader = document.createElement('div');
