@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bizmon-MyPage-MyNegotiations</title>
+    <link rel="stylesheet" type="text/css" href="./semantic.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="./semantic.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <!-- <script src="./includeHTML.js"></script> -->
+</head>
+<body>
+    <!-- Fixed Header -->
+    <div class="ui massive yellow inverted menu">
+        <div class="left menu">
+            <a onclick="location.href='/'" class="item">
+                <img class="ui image" src="./BizmonLogo.png">
+            </a>
+        </div>
+        <div class="right menu">
+            <a onclick="location.href='/enroll.html'" class="item">
+                <div class="ui small black header">
+                    <i class="calendar plus icon"></i>
+                    Enroll
+                </div>
+            </a>
+            <a onclick="location.href='/mypage.html'" class="item">
+                <div class="ui small black header">
+                    <i class="user icon"></i>
+                    My Page
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- ------------------- -->
+    <div class="ui grid">
+        <div class="two wide column"></div>
+        <div class="twelve wide column">
+            <div class="ui container">
+                <h1>My Negotiations</h1>               
+                <div class="ui stackable center aligned grid">
+                    <div class="middle aligned row">
+                    </div>
+                </div>
+            </div>
+            <div class="center-div">
+                <div class="ui pagination menu">
+                  <a class="active item">
+                    1
+                  </a>
+                  <a class="item">
+                    2
+                  </a>
+                  <div class="disabled item">
+                    ...
+                  </div>
+                  <a class="item">
+                    10
+                  </a>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="./my_page_my_negotiations.js"></script>
+</body>
+</html>
