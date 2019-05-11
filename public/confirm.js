@@ -102,7 +102,7 @@ $(document).ready(function() {
         else if(type === "Modify"){
             let reallysubmit = confirm('Do you really want to modify like this?');
             if(reallysubmit){
-                const offerid = sessionStorage.getItem('offerid');
+                const offerid = sessionStorage.getItem('detailid');
                 database.ref('Offers/' + offerid).set({
                     start: startDate,
                     end: endDate,
@@ -158,7 +158,42 @@ $(document).ready(function() {
                 sessionStorage.clear();
                 sessionStorage.setItem('detailtype', 'Negotiations');
                 sessionStorage.setItem('detailid', negoKey.key);
-                alert('Successfully modified!');
+                alert('Successfully sent negotiation!');
+                location.href = '/detail.html';
+            }
+        }
+        else if(type === "NegoModify"){
+            let reallysubmit = confirm('Do you really want to modify negotiation like this?');
+            if(reallysubmit){
+                const from = sessionStorage.getItem('from');
+                const to = sessionStorage.getItem('to');
+
+                const negoid = sessionStorage.getItem('detailid');
+                database.ref('Negotiations/' + negoid).set({
+                    start: startDate,
+                    end: endDate,
+                    negotiation: isNego,
+                    to: to,
+                    from: from,
+                    madeBy: 'Me',
+                    status: 'Negotiation Received'
+                });
+
+                database.ref('Negotiations/' + negoid + '/time').remove();
+                for (let i = 0; i < times.length; i++) {
+                    let targetTime = times[i];
+                    let timeKey = database.ref('Negotiations/' + negoKey.key + '/time').push();
+                    timeKey.set({
+                        day: targetTime[0],
+                        start: targetTime[1],
+                        end: targetTime[2]
+                    })
+                }
+
+                sessionStorage.clear();
+                sessionStorage.setItem('detailtype', 'Negotiations');
+                sessionStorage.setItem('detailid', negoid);
+                alert('Successfully modified negotiation!');
                 location.href = '/detail.html';
             }
         }
