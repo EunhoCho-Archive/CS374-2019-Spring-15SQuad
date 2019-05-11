@@ -109,9 +109,9 @@ $(document).ready(function() {
             const offerOwner = snapshot.val().from;
 
             if (offerOwner !== "Me") {
-                document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiation from " + offerOwner + " to " + snapshot.val().to;
+                document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiation about worker from " + offerOwner + " to " + snapshot.val().to;
             } else {
-                document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Negotiation from " + offerOwner + " to " + snapshot.val().to;
+                document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Negotiation about worker from " + offerOwner + " to " + snapshot.val().to;
             }
 
             let start_date = snapshot.val().start.split('-');

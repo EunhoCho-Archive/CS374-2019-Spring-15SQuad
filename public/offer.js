@@ -86,7 +86,7 @@ $(document).ready(function() {
             const databaseRef = detailtype + '/' + detailid;
 
             if (type === 'Modify') {
-                document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Enrollment Modification";
+                document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Modification of Enrollment made by Me";
                 database.ref(databaseRef).once('value', function (snapshot) {
                     document.getElementById('start_date').setAttribute('value', snapshot.val().start);
                     document.getElementById('end_date').setAttribute('value', snapshot.val().end);
@@ -228,15 +228,16 @@ $(document).ready(function() {
                 database.ref(databaseRef).once('value', function (snapshot) {
                     if(sessionStorage.getItem('detailtype') === "Negotiations"){
                         offerOwner = snapshot.val().from;
+                        if (offerOwner !== "Me"){
+                            document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiatiate about worker from " + offerOwner + " to Me";
+                        }
+                        else{
+                            document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Negotiatiate about worker from Me to " + snapshot.val().to;
+                        }
                     }
                     else{
                         offerOwner = snapshot.val().user;
-                    }
-
-                    if (offerOwner !== "Me") {
-                        document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiation";
-                    } else {
-                        document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Negotiation";
+                        document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Negotiatiate about worker from " + offerOwner + " to Me";
                     }
 
                     document.getElementById('start_date').setAttribute('value', snapshot.val().start);
@@ -376,21 +377,151 @@ $(document).ready(function() {
                     document.getElementById('loader').remove();
                 });
             } else if (type === 'NegoModify') {
-                let offerOwner = undefined;
-                if(sessionStorage.getItem('detailtype') === "Negotiations"){
+                database.ref(databaseRef).once('value', function (snapshot) {
                     offerOwner = snapshot.val().from;
-                }
-                else{
-                    offerOwner = snapshot.val().user;
-                }
+                    if (offerOwner !== "Me"){
+                        document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiatiation Modification about worker from " + offerOwner + " to Me";
+                    }
+                    else{
+                        document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Negotiatiation Modification about worker from Me to " + snapshot.val().to;
+                    }
 
-                if (offerOwner !== "Me") {
-                    document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiation Modification";
-                } else {
-                    document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Negotiation Modification";
-                }
+                    document.getElementById('start_date').setAttribute('value', snapshot.val().start);
+                    document.getElementById('end_date').setAttribute('value', snapshot.val().end);
 
+                    let isPossible = snapshot.val().negotiation;
+                    if (isPossible) {
+                        trueradio.setAttribute('checked', "");
+                    } else {
+                        falseradio.setAttribute('checked', "");
+                    }
 
+                    let worktimes = document.getElementById('worktime');
+                    snapshot.child('time').forEach(function (data) {
+                        let newtime = document.createElement('div');
+                        newtime.className = "inline fields";
+
+                        let blankField = document.createElement('div');
+                        blankField.className = "two wide field";
+                        newtime.appendChild(blankField);
+
+                        const targetDay = data.val().day;
+                        let daySelection = document.createElement('div');
+                        daySelection.className = "one field";
+                        let selection = document.createElement('select');
+                        selection.className = "ui fluid dropdown";
+
+                        let nothing = document.createElement('option');
+                        nothing.setAttribute('value', '');
+                        nothing.innerText = "Day";
+                        selection.appendChild(nothing);
+
+                        let monday = document.createElement('option');
+                        monday.setAttribute('value', 'Mon');
+                        monday.innerText = "Mon";
+                        if (targetDay === 'Mon') {
+                            monday.setAttribute('selected', 'selected');
+                        }
+                        selection.appendChild(monday);
+
+                        let tuesday = document.createElement('option');
+                        tuesday.setAttribute('value', 'Tue');
+                        tuesday.innerText = "Tue";
+                        if (targetDay === 'Tue') {
+                            tuesday.setAttribute('selected', 'selected');
+                        }
+                        selection.appendChild(tuesday);
+
+                        let wednesday = document.createElement('option');
+                        wednesday.setAttribute('value', 'Wed');
+                        wednesday.innerText = "Wed";
+                        if (targetDay === 'Wed') {
+                            wednesday.setAttribute('selected', 'selected');
+                        }
+                        selection.appendChild(wednesday);
+
+                        let thursday = document.createElement('option');
+                        thursday.setAttribute('value', 'Thur');
+                        thursday.innerText = "Thur";
+                        if (targetDay === 'Thur') {
+                            thursday.setAttribute('selected', 'selected');
+                        }
+                        selection.appendChild(thursday);
+
+                        let friday = document.createElement('option');
+                        friday.setAttribute('value', 'Fri');
+                        friday.innerText = "Fri";
+                        if (targetDay === 'Fri') {
+                            friday.setAttribute('selected', 'selected');
+                        }
+                        selection.appendChild(friday);
+
+                        let saturday = document.createElement('option');
+                        saturday.setAttribute('value', 'Sat');
+                        saturday.innerText = "Sat";
+                        if (targetDay === 'Sat') {
+                            saturday.setAttribute('selected', 'selected');
+                        }
+                        selection.appendChild(saturday);
+
+                        let sunday = document.createElement('option');
+                        sunday.setAttribute('value', 'Sun');
+                        sunday.innerText = "Sun";
+                        if (targetDay === 'Sun') {
+                            sunday.setAttribute('selected', 'selected');
+                        }
+                        selection.appendChild(sunday);
+                        daySelection.appendChild(selection);
+                        newtime.appendChild(daySelection);
+
+                        let startTimeSelection = document.createElement('div');
+                        startTimeSelection.className = "three wide field";
+                        startTimeSelection.innerHTML = "<input type=\"time\" value=\"" + data.val().start + "\">";
+                        newtime.appendChild(startTimeSelection);
+
+                        let timeUntil = document.createElement('div');
+                        timeUntil.className = "one field";
+                        timeUntil.innerHTML = "<strong>~</strong>";
+                        newtime.appendChild(timeUntil);
+
+                        let endTimeSelection = document.createElement('div');
+                        endTimeSelection.className = "three wide field";
+                        endTimeSelection.innerHTML = "<input type=\"time\" value=\"" + data.val().end + "\">";
+                        newtime.appendChild(endTimeSelection);
+
+                        let minusButton = document.createElement('div');
+                        minusButton.className = "one field";
+                        minusButton.innerHTML = "<button class=\"yellow circular ui icon button delete_time\"><i class=\"icon minus\"></i></button>";
+                        newtime.appendChild(minusButton);
+                        worktimes.appendChild(newtime);
+                    });
+
+                    if (worktimes.childNodes.length === 1) {
+                        worktimes.lastChild.removeChild(worktimes.lastChild.lastChild);
+                    }
+                    let plusButton = document.createElement('div');
+                    plusButton.className = "one field";
+                    plusButton.innerHTML = "<button id=\"more_time\" class=\"yellow circular ui icon button\"><i class=\"icon plus\"></i></button>";
+                    worktimes.lastChild.appendChild(plusButton);
+
+                    const date = new Date();
+                    let currentTime = date.getFullYear() + '-';
+                    if (date.getMonth() < 9) {
+                        currentTime = currentTime + '0' + (date.getMonth() + 1) + '-';
+                    } else {
+                        currentTime = currentTime + (date.getMonth() + 1) + '-';
+                    }
+                    if (date.getDate() < 10) {
+                        currentTime = currentTime + '0' + date.getDate();
+                    } else {
+                        currentTime = currentTime + date.getDate();
+                    }
+
+                    document.getElementById('start_date').setAttribute('min', currentTime);
+                    document.getElementById('end_date').setAttribute('min', currentTime);
+                }).then(function () {
+                    document.getElementById('loader').remove();
+                });
             }
             else {
                 location.href = '/404.html';

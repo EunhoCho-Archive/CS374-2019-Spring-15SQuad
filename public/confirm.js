@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     function initialize(){
         let name = sessionStorage.getItem('name');
-        document.getElementById('name').innerHTML = name;
+        document.getElementById('name').innerHTML = name + 'Confirmation';
 
         let start_date = sessionStorage.getItem('start_date').split('-');
         document.getElementById('start_date').innerHTML = "<h3>" + start_date[0] + ". " + start_date[1] + ". " + start_date[2] + "</h3>";
