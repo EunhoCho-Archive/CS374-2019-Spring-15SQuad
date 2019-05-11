@@ -46,7 +46,7 @@ $(document).ready(function() {
 	    	entries_div.className = "entries";
 	    	$("#table_header").after(entries_div);
 
-
+	    	var hover_index = 1;
 	    	for(var i=(my_offer_keys.length-1-(4*n)); i>bottom; i--){
 				var entry = value[my_offer_keys[i]];
 
@@ -87,7 +87,15 @@ $(document).ready(function() {
 				});
 		        
 		        new_middle_row.appendChild(day_and_time);
-				//console.log(entry);	
+
+		        /* hovering */
+		        $(".ui.container:eq("+hover_index+")").hover(
+		    		function(){
+		    			this.className += " hover";
+		    		},function(){
+		    			this.className = "ui container segment offer";
+		    		});
+		        hover_index++;
 			}
 
 			/* Implementing Paging */
