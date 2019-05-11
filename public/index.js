@@ -8,7 +8,7 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     let database = firebase.database();
 
-    show_nth_page = function(n){ /* n is active page number */
+    show_nth_page = function(n){ /* n is active page number (0,1,...) */
     	return database.ref("/Offers/").once("value", function(snapshot) {
 
 	    	var value = snapshot.val();
@@ -33,7 +33,7 @@ $(document).ready(function() {
 
 				let new_container = document.createElement('div');
 				new_container.className = "ui container segment offer";
-        new_container.setAttribute('id', key_list[i]);
+        		new_container.setAttribute('id', key_list[i]);
 				entries_div.appendChild(new_container);
 
 				let new_three_col_grid = document.createElement('div');
