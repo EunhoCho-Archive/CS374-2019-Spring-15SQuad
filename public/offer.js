@@ -237,7 +237,7 @@ $(document).ready(function() {
                     }
                     else{
                         offerOwner = snapshot.val().user;
-                        document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiatiate about worker from " + offerOwner + " to Me";
+                        document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiate about worker from " + offerOwner + " to Me";
                     }
 
                     document.getElementById('start_date').setAttribute('value', snapshot.val().start);
@@ -380,10 +380,10 @@ $(document).ready(function() {
                 database.ref(databaseRef).once('value', function (snapshot) {
                     offerOwner = snapshot.val().from;
                     if (offerOwner !== "Me"){
-                        document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiatiation Modification about worker from " + offerOwner + " to Me";
+                        document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiation Modification about worker from " + offerOwner + " to Me";
                     }
                     else{
-                        document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Negotiatiation Modification about worker from Me to " + snapshot.val().to;
+                        document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Negotiation Modification about worker from Me to " + snapshot.val().to;
                     }
 
                     document.getElementById('start_date').setAttribute('value', snapshot.val().start);
