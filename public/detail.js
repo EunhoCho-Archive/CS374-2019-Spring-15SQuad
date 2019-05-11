@@ -125,7 +125,7 @@ $(document).ready(function() {
             let isPossible = snapshot.val().negotiation;
             const trueradio = document.getElementById('isNegoTrue');
             const falseradio = document.getElementById('isNegoFalse');
-            if(isPossible){
+            if(isPossible === "true"){
                 trueradio.setAttribute('checked', "");
                 falseradio.setAttribute('disabled', 'disabled');
             }
