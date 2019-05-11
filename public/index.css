@@ -12,3 +12,8 @@
   width: 130px;
   text-align: center;
 }
+
+.entries{ /* container of entries and paging units */
+	margin: 20px;
+	text-align: bottom;
+}
