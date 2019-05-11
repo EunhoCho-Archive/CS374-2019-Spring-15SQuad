@@ -87,14 +87,12 @@ $(document).ready(function() {
 				});
 		        
 		        new_middle_row.appendChild(day_and_time);
-				
-				/* hovering */
+
+		        /* hovering */
 		        $(".ui.container:eq("+hover_index+")").hover(
 		    		function(){
-		    			console.log("hover in");
 		    			this.className += " hover";
 		    		},function(){
-		    			console.log("hover out");
 		    			this.className = "ui container segment offer";
 		    		});
 		        hover_index++;

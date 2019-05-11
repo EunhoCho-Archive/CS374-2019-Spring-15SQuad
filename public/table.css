@@ -22,3 +22,8 @@
   background: #F2F2F2 !important;
   cursor: pointer !important;
 }
+
+.ui.container.segment.hover{ /* hovering color */
+  background: #F2F2F2 !important;
+  cursor: pointer !important;
+}

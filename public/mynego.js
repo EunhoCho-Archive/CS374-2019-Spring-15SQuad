@@ -48,7 +48,7 @@ $(document).ready(function() {
 	    	entries_div.className = "entries";
 	    	$("#table_header").after(entries_div);
 
-
+	    	hover_index = 1;
 	    	for(var i=(my_offer_keys.length-1-(4*n)); i>bottom; i--){
 				var entry = value[my_offer_keys[i]];
 				//console.log(entry);
@@ -117,7 +117,16 @@ $(document).ready(function() {
 	        		new_time.className = "elem";
 	        		day_and_time.appendChild(new_time);
 				});
-				new_middle_row.appendChild(day_and_time);	
+				new_middle_row.appendChild(day_and_time);
+
+				/* hovering */
+		        $(".ui.container:eq("+hover_index+")").hover(
+		    		function(){
+		    			this.className += " hover";
+		    		},function(){
+		    			this.className = "ui container segment";
+		    		});
+		        hover_index++;	
 				
 			}
 
