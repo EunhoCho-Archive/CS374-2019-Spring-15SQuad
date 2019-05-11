@@ -133,7 +133,8 @@ $(document).ready(function() {
 
 	$(document).on('click', '.offer', function(){
 		let offerid = this.getAttribute('id');
-		sessionStorage.setItem('offerid', offerid);
+		sessionStorage.setItem('detailtype', 'Offers');
+		sessionStorage.setItem('detailid', offerid);
 		location.href = '/detail.html';
 	});
   
