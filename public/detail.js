@@ -191,6 +191,7 @@ $(document).ready(function() {
                 mainStatus.innerHTML = "<h3>" + snapshot.val().status + "</h3>";
             }
             statusField.appendChild(mainStatus);
+            mainform.appendChild(statusField);
 
             let buttonarea = document.getElementById('offerButtons');
             let firstButton = document.createElement('button');
