@@ -1,8 +1,7 @@
 $(document).ready(function() {
-
     // Section for Worktime
     /// Worktime div initialize
-    function initializeWorkTime(){
+    function initialize(){
         let worktimes = document.getElementById('worktime');
 
         let newtime = document.createElement('div');
@@ -46,6 +45,22 @@ $(document).ready(function() {
         newtime.appendChild(plusButton);
 
         worktimes.appendChild(newtime);
+
+        let currentTime = date.getFullYear() + '-';
+        if(date.getMonth() < 9){
+            currentTime = currentTime + '0' + (date.getMonth() + 1) + '-';
+        }
+        else{
+            currentTime = currentTime + (date.getMonth() + 1) + '-';
+        }
+        if(date.getDate() < 10){
+            currentTime = currentTime + '0' + date.getDate();
+        }
+        else{
+            currentTime = currentTime + date.getDate();
+        }
+        document.getElementById('start_date').setAttribute('min', currentTime);
+        document.getElementById('end_date').setAttribute('min', currentTime);
     }
 
     /// After press delete time button
@@ -143,7 +158,7 @@ $(document).ready(function() {
         worktimes.appendChild(newtime);
     });
 
-    initializeWorkTime();
+    initialize();
 
     // Section for submit button & add form to firebase
     let config = {
@@ -168,7 +183,6 @@ $(document).ready(function() {
             isValid = false;
             errorlist.push('Start workday is blank');
         }
-
         let endDate = document.getElementById('end_date').value;
         if(endDate === ""){
             isValid = false;
@@ -190,16 +204,16 @@ $(document).ready(function() {
             if(day === "" || start === "" || end === ""){
                 isValid = false;
                 if (i % 10 === 0 && i % 100 === 10){
-                    errorlist.push(i + 'st worktime is blank');
+                    errorlist.push((i + 1) + 'st worktime is blank');
                 }
                 else if (i % 10 === 1 && i % 100 === 11){
-                    errorlist.push(i + 'nd worktime is blank');
+                    errorlist.push((i + 1) + 'nd worktime is blank');
                 }
                 else if (i % 10 === 2 && i % 100 === 12){
-                    errorlist.push(i + 'rd worktime is blank');
+                    errorlist.push((i + 1) + 'rd worktime is blank');
                 }
                 else{
-                    errorlist.push(i + 'th worktime is blank');
+                    errorlist.push((i + 1) + 'th worktime is blank');
                 }
             }
             if(start !== "" && end !== "" && start >= end){
