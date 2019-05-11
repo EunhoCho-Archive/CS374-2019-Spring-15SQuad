@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bizmon-MyPage-MyOffers</title>
+    <title>Bizmon-MyPage-MyNegotiations</title>
     <link rel="stylesheet" type="text/css" href="./semantic.css">
     <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -40,13 +40,19 @@
         <div class="two wide column"></div>
         <div class="twelve wide column">
             <div class="ui container">
-                <div class="ui form">  
-                    <h1>My Offers</h1>               
-                    <div class="ui stackable center aligned grid">
-                        <div class="middle aligned row">
-                        </div>
+                <h1>My Negotiations</h1>
+                <div class="ui five column stackable center aligned grid">
+                    <div class="middle aligned row">
+                        <div class="column"><h2><i class="icon sign-in"></i> or <i class="icon sign-out"></i></h2></div>
+                        <div class="column"><h2>Status</h2></div>
+                        <div class="column"><h2>Store</h2></div>
+                        <div class="column"><h2>Period</h2></div>
+                        <div class="column"><h2>Day & Time</h2></div>
                     </div>
                 </div>
+            </div>
+            <div id="loader" class="ui active inverted dimmer">
+                <div class="ui active centered inline loader"></div>
             </div>
             <div class="center-div">
                 <div class="ui pagination menu">
@@ -66,6 +72,6 @@
             </div>
         </div>
     </div>
-    <script src="./my_page_my_offers.js"></script>
+    <script src="./mynego.js"></script>
 </body>
 </html>

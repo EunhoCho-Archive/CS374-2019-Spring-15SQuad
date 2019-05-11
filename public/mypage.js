@@ -8,7 +8,7 @@ $(document).ready(function() {
     let database = firebase.database();
 
     // Show all entries from Firebase
-	show_all_entries = function(){
+	function show_all_entries(){
 		return database.ref("/Offers/").once("value", function(snapshot) {
 			var my_value = snapshot.val();
 			if(my_value == null){
@@ -21,14 +21,10 @@ $(document).ready(function() {
 				if (entry.user === "Me") {
 					let new_container = document.createElement('div');
 					new_container.className = "ui container segment";
-				
-					let new_form = document.createElement('div');
-					new_form.className = "ui form";
-					new_container.appendChild(new_form);
 
 					let new_col_grid = document.createElement('div');
-					new_col_grid.className = "ui stackable center aligned grid";
-					new_form.appendChild(new_col_grid);
+					new_col_grid.className = "ui two column stackable center aligned grid";
+					new_container.appendChild(new_col_grid);
 
 					let new_middle_row = document.createElement('div');
 					new_middle_row.className = "middle aligned row";
@@ -60,6 +56,8 @@ $(document).ready(function() {
 					// database.ref("/Negotiations/"). madeBy:upperEntryUser to:"Me"
 				}
 			}
+		}).then(function (){
+			document.getElementById('loader').remove();
 		});
 	}
 
