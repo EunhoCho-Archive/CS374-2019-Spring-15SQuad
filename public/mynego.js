@@ -69,7 +69,7 @@ $(document).ready(function() {
 				// 1. Arrow icon
 				let arrow_icon = document.createElement('div');
 				arrow_icon.className = "column";
-				if (entry.madeBy === "Me")
+				if (entry.from === "Me")
 					arrow_icon.innerHTML = "<h2><i class=\"icon sign-out\"></i></h2>";
 				else
 					arrow_icon.innerHTML = "<h2><i class=\"icon sign-in\"></i></h2>";
@@ -89,10 +89,10 @@ $(document).ready(function() {
 				// 3. Other Store
 				let other = document.createElement('div');
 				other.className = "column";
-				if (entry.madeBy === "Me")
-					other.innerHTML = "<h2>" + entry.from + "</h2>";
-				else
+				if (entry.from === "Me")
 					other.innerHTML = "<h2>" + entry.to + "</h2>";
+				else
+					other.innerHTML = "<h2>" + entry.from + "</h2>";
 				new_middle_row.appendChild(other);
 
 				// 4. Period
