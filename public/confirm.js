@@ -182,7 +182,7 @@ $(document).ready(function() {
                 database.ref('Negotiations/' + negoid + '/time').remove();
                 for (let i = 0; i < times.length; i++) {
                     let targetTime = times[i];
-                    let timeKey = database.ref('Negotiations/' + negoKey.key + '/time').push();
+                    let timeKey = database.ref('Negotiations/' + negoid + '/time').push();
                     timeKey.set({
                         day: targetTime[0],
                         start: targetTime[1],
