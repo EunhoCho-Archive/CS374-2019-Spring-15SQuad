@@ -66,8 +66,10 @@ $(document).ready(function() {
 				//console.log(entry);
 				
 			}
+		}).then(function (){
+			document.getElementById('loader').remove();
 		});
-	}
+	};
 
 	show_all_entries();
 

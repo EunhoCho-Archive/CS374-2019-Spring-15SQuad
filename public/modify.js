@@ -133,6 +133,8 @@ $(document).ready(function() {
         plusButton.className = "one field";
         plusButton.innerHTML = "<button id=\"more_time\" class=\"yellow circular ui icon button\"><i class=\"icon plus\"></i></button>";
         worktimes.lastChild.appendChild(plusButton);
+    }).then(function(){
+        document.getElementById('loader').remove();
     });
 
     /// After press delete time button
