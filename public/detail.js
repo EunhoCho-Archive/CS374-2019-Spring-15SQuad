@@ -94,8 +94,8 @@ $(document).ready(function() {
                 firstButton.setAttribute('id', 'accept');
                 secondButton.innerText = "Negotiate";
                 secondButton.setAttribute('id', 'negotiate');
-                if(!isPossible){
-                    secondButton.className += "disabled";
+                if(isPossible === "false"){
+                    secondButton.className = "ui black button";
                 }
             }
 
@@ -212,8 +212,8 @@ $(document).ready(function() {
                 firstButton.setAttribute('id', 'accept');
                 secondButton.innerText = "Negotiate";
                 secondButton.setAttribute('id', 'negotiate');
-                if(!isPossible){
-                    secondButton.className += "disabled";
+                if(isPossible === "false"){
+                    secondButton.className = "ui black button";
                 }
             }
 
@@ -262,7 +262,12 @@ $(document).ready(function() {
 
     // Section for Negotiation button
     $(document).on('click', "#negotiate", function(){
-        sessionStorage.setItem('type', 'Negotiate');
-        location.href = '/offer.html';
+        if(document.getElementById('negotiate').className !== "ui black button"){
+            sessionStorage.setItem('type', 'Negotiate');
+            location.href = '/offer.html';
+        }
+        else{
+            alert("Negotiation is impossible");
+        }
     });
 });
