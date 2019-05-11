@@ -250,7 +250,12 @@ $(document).ready(function() {
 
     // Section for Modification button
     $(document).on('click', "#modify", function(){
-        sessionStorage.setItem('type', 'Modify');
+        if(sessionStorage.getItem('detailtype') === 'Offers'){
+            sessionStorage.setItem('type', 'Modify');
+        }
+        else{
+            sessionStorage.setItem('type', 'NegoModify');
+        }
         location.href = '/offer.html';
     });
 
