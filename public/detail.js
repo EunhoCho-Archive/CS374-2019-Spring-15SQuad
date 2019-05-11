@@ -179,7 +179,7 @@ $(document).ready(function() {
             statusField.className = "inline fields";
 
             let blankField = document.createElement('div');
-            blankField.className = "two wide field";
+            blankField.className = "six wide field";
             statusField.appendChild(blankField);
 
             let mainStatus = document.createElement('div');
