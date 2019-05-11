@@ -108,6 +108,96 @@ $(document).ready(function() {
 		sessionStorage.setItem('offerid', offerid);
 		location.href = '/detail.html';
 	});
+
+	/*
+	 * On press 'Filter' search button
+	 */
+	$(document).on('click', '#filter_search', function(){
+        /* Check validation */
+        let isValid = true;
+        let errorlist = [];
+
+        // Period validation
+        let startDate = document.getElementById('start_date').value;
+        if(startDate === ""){
+            isValid = false;
+            errorlist.push('Starting date is blank');
+        }
+
+        let endDate = document.getElementById('end_date').value;
+        if(endDate === ""){
+            isValid = false;
+            errorlist.push('Ending date is blank');
+        }
+        if (startDate !== "" && endDate !== "" && startDate > endDate){
+            isValid = false;
+            errorlist.push('Ending date is faster than starting date');
+        }
+
+        // Workday validation
+        let workdays = new Array();
+        if(document.getElementById('Mon').checked)
+        	workdays.push("Mon");
+        if(document.getElementById('Tue').checked)
+        	workdays.push("Tue");
+        if(document.getElementById('Wed').checked)
+        	workdays.push("Wed");
+        if(document.getElementById('Thu').checked)
+        	workdays.push("Thu");
+        if(document.getElementById('Fri').checked)
+        	workdays.push("Fri");
+        if(document.getElementById('Sat').checked)
+        	workdays.push("Sat");
+        if(document.getElementById('Sun').checked)
+        	workdays.push("Sun");
+
+        // Worktime validation
+        let startTime = document.getElementById('start_time').value;
+        if (startTime === "") {
+        	isValid = false;
+        	errorlist.push('Starting time is blank');
+        }
+
+        let endTime = document.getElementById('end_time').value
+        if (endTime === "") {
+        	isValid = false;
+        	errorlist.push('Ending time is blank');
+        }
+        if (startTime !== "" && endTime !== "" && startTime >= endTime){
+            isValid = false;
+            errorlist.push('Ending time is faster than starting time');
+        }
+
+        // Filter or Error message
+        if(!isValid) {	/// Error message
+			let form = document.getElementById('form');
+            let message = document.createElement('div');
+            message.className = "ui error message";
+            message.setAttribute('id', 'errorMessage');
+
+            let messageHeader = document.createElement('div');
+            messageHeader.className = "header";
+            messageHeader.innerText = "There were some errors with your submission";
+            message.appendChild(messageHeader);
+
+            let messagelist = document.createElement('ul');
+            messagelist.className = "list";
+
+            for(let i = 0; i < errorlist.length; i++){
+                let singleitem = document.createElement('li');
+                singleitem.innerText = errorlist[i];
+                messagelist.appendChild(singleitem);
+            }
+
+            message.appendChild(messagelist);
+            form.appendChild(message);
+        }
+        else {			/// Filter Search
+        	
+
+        }
+
+	});
   
 	show_nth_page(0);
 });

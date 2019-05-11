@@ -43,16 +43,129 @@
     </div>
     <!-- ------------------- -->
     <div class="ui grid">
+        <!-- Search Filter -->
         <div class="two wide column">
-            <!-- Search Filter
-            <div class="ui left fixed secondary vertical pointing menu">
-                <a class="active item">Workday<i class="green icon check"></i></a>
-                <a class="item">Worktime<i class="red icon close"></i></a>
-                <a class="item">Negotiation</a>
-                <a class="item">Back to Top</a>
-                <a class="item">Go to Bottom</a>
-            </div>-->
+            <!-- Title -->
+            <h3 class="ui center aligned header">
+                Search Filter
+            </h3>
+            <form class="ui form">
+                <!-- 1. Period -->
+                <h4 class="ui dividing header">
+                    <i class="calendar icon"></i>
+                    Period
+                </h4>
+                <div class="field">
+                    <div class="inline fields">
+                        <div class="sixteen wide field">
+                            <input id="start_date" type="date" min="2019-05-08">
+                        </div>
+                        <label><h5 class="ui header">to</h5></label>
+                    </div>
+                    <div class="inline fields">
+                        <div class="sixteen wide field">
+                            <input id="end_date" type="date" min="2019-05-08">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Workday -->
+                <h4 class="ui dividing header">
+                    <i class="calendar alternate icon"></i>
+                    Workday
+                </h4>
+                <div class="field">
+                    <div class="equal width fields">
+                        <div class="five wide field" id="Mon">
+                            <div class="ui checkbox">
+                                <input type="checkbox">
+                                <label><h5 class="ui header">Mon</h5></label>
+                            </div>
+                        </div>
+                        <div class="five wide field" id="Tue">
+                            <div class="ui checkbox">
+                                <input type="checkbox">
+                                <label><h5 class="ui header">Tue</h5></label>
+                            </div>
+                        </div>
+                        <div class="five wide field" id="Wed">
+                            <div class="ui checkbox">
+                                <input type="checkbox">
+                                <label><h5 class="ui header">Wed</h5></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="equal width fields">
+                        <div class="five wide field" id="Thu">
+                            <div class="ui checkbox">
+                                <input type="checkbox">
+                                <label><h5 class="ui header">Thu</h5></label>
+                            </div>
+                        </div>
+                        <div class="five wide field" id="Fri">
+                            <div class="ui checkbox">
+                                <input type="checkbox">
+                                <label><h5 class="ui header">Fri</h5></label>
+                            </div>
+                        </div>
+                        <div class="five wide field" id="Sat">
+                            <div class="ui checkbox">
+                                <input type="checkbox">
+                                <label><h5 class="ui header">Sat</h5></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui checkbox" id="Sun">
+                            <input type="checkbox">
+                            <label><h5 class="ui header">Sun</h5></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Worktime -->
+                <h4 class="ui dividing header">
+                    <i class="clock icon"></i>
+                    Worktime
+                </h4>
+                <div class="field">
+                    <div class="inline fields">
+                        <div class="fourteen wide field">
+                            <input id="start_time" type="time">
+                        </div>
+                        <label><h5 class="ui header">to</h5></label>
+                    </div>
+                    <div class="inline fields">
+                        <div class="fourteen wide field">
+                            <input id="end_time" type="time">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Negotiation -->
+                <h4 class="ui dividing header">
+                    <i class="exchange alternate icon"></i>
+                    Negotiation
+                </h4>
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox">
+                        <label><h5 class="ui header">
+                            Negotiation Possible
+                        </h5></label>
+                    </div>
+                </div>
+
+                <!-- Search -->
+                <h3 class="ui left aligned header">
+                </h3>
+                <button class="ui labeled icon primary button" id="filter_search">
+                    <i class="filter icon"></i>
+                    Filter
+                </button>
+            </form>
         </div>
+        <!-- ------------------- -->
         <div class="twelve wide column">
             <div id="table_header" class="ui container">                 
                 <div class="ui three column stackable center aligned grid">
