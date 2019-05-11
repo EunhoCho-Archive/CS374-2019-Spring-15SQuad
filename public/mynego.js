@@ -78,7 +78,12 @@ $(document).ready(function() {
 				// 2. Status
 				let status = document.createElement('div');
 				status.className = "column";
-				status.innerHTML = "<h2>" + entry.status + "</h2>";
+				if (entry.madeBy === "Me" && entry.status === "Negotiation Received"){
+					status.innerHTML = "<h2>Negotiation Sent</h2>";
+				}
+				else{
+					status.innerHTML = "<h2>" + entry.status + "</h2>";
+				}
 				new_middle_row.appendChild(status);
 
 				// 3. Other Store
