@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>비즈몬</title>
+    <link rel="stylesheet" type="text/css" href="../semantic.css">
+    <link rel="stylesheet" type="text/css" href="../table.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="../semantic.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script src='./engkor.js'></script>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <div class="ui massive yellow inverted menu">
+        <div class="left menu">
+            <a onclick="location.href='/ko/'" class="item">
+                <img class="ui image" src="./BizmonLogo.png">
+            </a>
+        </div>
+        <div class="right menu">
+            <a onclick="sessionStorage.setItem('type','Enroll');location.href='/ko/offer.html'" class="item">
+                <div class="ui small black header">
+                    <i class="calendar plus icon"></i>
+                    등록
+                </div>
+            </a>
+            <a onclick="location.href='/ko/mypage.html'" class="item">
+                <div class="ui small black header">
+                    <i class="user icon"></i>
+                    내 공유 목록
+                </div>
+            </a>
+            <a onclick="location.href='/ko/mynego.html'" class="item">
+                <div class="ui small black header">
+                    <i class="exchange icon"></i>
+                    내 협상 목록
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- ------------------- -->
+    <div class="ui grid">
+        <div class="two wide column">
+            <!-- Search Filter
+            <div class="ui left fixed secondary vertical pointing menu">
+                <a class="active item">Workday<i class="green icon check"></i></a>
+                <a class="item">Worktime<i class="red icon close"></i></a>
+                <a class="item">Negotiation</a>
+                <a class="item">Back to Top</a>
+                <a class="item">Go to Bottom</a>
+            </div>-->
+        </div>
+        <div class="twelve wide column">
+            <div id="table_header" class="ui container">
+                <div class="ui three column stackable center aligned grid">
+                    <div class="middle aligned row">
+                        <div class="column"><h2>가게</h2></div>
+                        <div class="column"><h2>근무 기간</h2></div>
+                        <div class="column"><h2>근무 시간</h2></div>
+                    </div>
+                </div>
+            </div>
+            <div id="loader" class="ui active inverted dimmer">
+                <div class="ui active centered inline loader"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
