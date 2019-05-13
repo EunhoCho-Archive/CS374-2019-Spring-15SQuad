@@ -756,12 +756,7 @@ $(document).ready(function() {
     $(document).on('click', "#cancel", function(){
         let reallycancel = confirm('Do you really want to cancel and go back?');
         if(reallycancel){
-            if(type === 'Modify' || type === 'Negotiate' || type === 'NegoModify'){
-                location.href = '/detail.html';
-            }
-            else{
-                location.href = '/';
-            }
+            history.back();
         }
     });
 });
