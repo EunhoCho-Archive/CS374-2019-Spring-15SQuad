@@ -233,7 +233,7 @@ $(document).ready(function() {
     $(document).on('click', "#accept", function(){
         let reallyaccept = confirm('이 제안을 수락하시겠습니까?');
         if(reallyaccept){
-            alert('Offer accepted');
+            alert('수락되었습니다.');
             location.href = "/ko/";
         }
         // Not implemented whole accept process yet.
@@ -243,7 +243,7 @@ $(document).ready(function() {
     $(document).on('click', "#delete", function(){
         let reallyaccept = confirm('이 제안을 삭제하시겠습니까?');
         if(reallyaccept){
-            alert('Successfully deleted');
+            alert('삭제되었습니다.');
             location.href = "/ko/";
         }
         // Not implemented whole delete process yet.
