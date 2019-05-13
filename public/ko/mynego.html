@@ -1,43 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Bizmon-My Offers</title>
-    <link rel="stylesheet" type="text/css" href="./semantic.css">
-    <link rel="stylesheet" type="text/css" href="./table.css">
+    <title>비즈몬</title>
+    <link rel="stylesheet" type="text/css" href="../semantic.css">
+    <link rel="stylesheet" type="text/css" href="../table.css">
     <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
-    <script src="./semantic.js"></script>
+    <script src="../semantic.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
-    <!-- <script src="./includeHTML.js"></script> -->
+    <script src='./engkor.js'></script>
 </head>
 <body>
     <!-- Fixed Header -->
     <div class="ui massive yellow inverted menu">
         <div class="left menu">
-            <a onclick="location.href='/'" class="item">
+            <a onclick="location.href='/ko/'" class="item">
                 <img class="ui image" src="./BizmonLogo.png">
             </a>
         </div>
         <div class="right menu">
-            <a onclick="sessionStorage.setItem('type','Enroll');location.href='/offer.html'" class="item">
+            <a onclick="sessionStorage.setItem('type','Enroll');location.href='/ko/offer.html'" class="item">
                 <div class="ui small black header">
                     <i class="calendar plus icon"></i>
-                    Enroll
+                    등록
                 </div>
             </a>
-            <a onclick="location.href='/mypage.html'" class="item">
+            <a onclick="location.href='/ko/mypage.html'" class="item">
                 <div class="ui small black header">
                     <i class="user icon"></i>
-                    My Offer
+                    내 공유 목록
                 </div>
             </a>
-            <a onclick="location.href='/mynego.html'" class="item">
+            <a onclick="location.href='/ko/mynego.html'" class="item">
                 <div class="ui small black header">
                     <i class="exchange icon"></i>
-                    My Negotiation
+                    내 협상 목록
                 </div>
             </a>
         </div>
@@ -47,11 +47,14 @@
         <div class="two wide column"></div>
         <div class="twelve wide column">
             <div id="table_header" class="ui container">
-                <h1>My Offers</h1>
-                <div class="ui two column stackable center aligned grid">
+                <h1>내 협상 목록</h1>
+                <div class="ui five column stackable center aligned grid">
                     <div class="middle aligned row">
-                        <div class="column"><h2>Period</h2></div>
-                        <div class="column"><h2>Day & Time</h2></div>
+                        <div class="column"><h2><i class="icon sign-in"></i> or <i class="icon sign-out"></i></h2></div>
+                        <div class="column"><h2>협상 상태</h2></div>
+                        <div class="column"><h2>가게</h2></div>
+                        <div class="column"><h2>근무 기간</h2></div>
+                        <div class="column"><h2>근무 시간</h2></div>
                     </div>
                 </div>
             </div>
@@ -60,6 +63,6 @@
             </div>
         </div>
     </div>
-    <script src="./mypage.js"></script>
+    <script src="./mynego.js"></script>
 </body>
 </html>

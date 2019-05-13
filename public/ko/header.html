@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>비즈몬</title>
+    <link rel="stylesheet" type="text/css" href="../semantic.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="../semantic.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script src='./engkor.js'></script>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <div class="ui massive yellow inverted menu">
+        <div class="left menu">
+            <a onclick="location.href='/ko/'" class="item">
+                <img class="ui image" src="./BizmonLogo.png">
+            </a>
+        </div>
+        <div class="right menu">
+            <a onclick="sessionStorage.setItem('type','Enroll');location.href='/ko/offer.html'" class="item">
+                <div class="ui small black header">
+                    <i class="calendar plus icon"></i>
+                    등록
+                </div>
+            </a>
+            <a onclick="location.href='/ko/mypage.html'" class="item">
+                <div class="ui small black header">
+                    <i class="user icon"></i>
+                    내 공유 목록
+                </div>
+            </a>
+            <a onclick="location.href='/ko/mynego.html'" class="item">
+                <div class="ui small black header">
+                    <i class="exchange icon"></i>
+                    내 협상 목록
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- ------------------- -->
+</body>

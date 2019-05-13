@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>비즈몬</title>
+    <link rel="stylesheet" type="text/css" href="../semantic.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="../semantic.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script src='./engkor.js'></script>
+</head>
+<body>
+<!-- Fixed Header -->
+<div class="ui massive yellow inverted menu">
+    <div class="left menu">
+        <a onclick="location.href='/ko/'" class="item">
+            <img class="ui image" src="./BizmonLogo.png">
+        </a>
+    </div>
+    <div class="right menu">
+        <a onclick="sessionStorage.setItem('type','Enroll');location.href='/ko/offer.html'" class="item">
+            <div class="ui small black header">
+                <i class="calendar plus icon"></i>
+                Enroll
+            </div>
+        </a>
+        <a onclick="location.href='/ko/mypage.html'" class="item">
+            <div class="ui small black header">
+                <i class="user icon"></i>
+                My Offer
+            </div>
+        </a>
+        <a onclick="location.href='/ko/mynego.html'" class="item">
+            <div class="ui small black header">
+                <i class="exchange icon"></i>
+                My Negotiation
+            </div>
+        </a>
+    </div>
+</div>
+<!-- ------------------- -->
+<div class="ui grid">
+    <div class="two wide column"></div></div>
+<div class="twelve wide column">
+    <div class="ui container segment">
+        <div class="ui form">
+            <h1 id="name"></h1>
+            <h2 class="yellow ui dividing header">근무 기간</h2>
+            <div class="inline fields">
+                <div class="one wide field"></div>
+                <h3 class="one wide field">시작일</h3>
+                <div id="start_date" class="three wide field"></div>
+            </div>
+            <div class="inline fields">
+                <div class="one wide field"></div>
+                <h3 class="one wide field">종료일</h3>
+                <div id="end_date" class="three wide field"></div>
+            </div>
+            <h2 class="yellow ui dividing header">근무 시간</h2>
+            <div id="worktime"></div>
+            <h2 class="yellow ui dividing header">협상 가능 여부</h2>
+            <div class="inline fields">
+                <div class="two wide field"></div>
+                <div class="one field">
+                    <div class="ui read-only radio checkbox">
+                        <input type="radio" name="isPossible" id="isNegoTrue" value="true">
+                        <label></label>
+                    </div>
+                </div>
+                <div class="two wide field">
+                    <h3>가능</h3>
+                </div>
+                <div class="one field">
+                    <div class="ui read-only radio checkbox">
+                        <input type="radio" name="isPossible" id="isNegoFalse" value="false">
+                        <label></label>
+                    </div>
+                </div>
+                <div class="two wide field">
+                    <h3>불가능</h3>
+                </div>
+            </div>
+            <div class="five wide fields">
+                <div class="field"></div><div class="field"></div>
+                <div class="field">
+                    <div class="ui buttons">
+                        <button id="cancel" class="ui button">취소</button>
+                        <div class="or"></div>
+                        <button id="submit" class="ui yellow button">확인</button>
+                    </div>
+                </div>
+                <div class="field"></div><div class="field"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="./confirm.js"></script>
+</body>
+</html>

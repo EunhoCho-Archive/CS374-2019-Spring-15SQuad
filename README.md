@@ -9,7 +9,7 @@ To deal with **seasonal leftover workforce**, small business owners nearby unive
 
 
 ## Main files
-- [./public/index.html](https://github.com/proseuche/15SQuad/blob/master/public/index.html)  [./public/index.css](https://github.com/proseuche/15SQuad/blob/master/public/index.css)  [./public/index.js](https://github.com/proseuche/15SQuad/blob/master/public/index.js)
+- [./public/index.html](https://github.com/proseuche/15SQuad/blob/master/public/index.html)  [./public/index.js](https://github.com/proseuche/15SQuad/blob/master/public/index.js)
   * Main page that lists others' offers.
   * By clicking on an offer, users can send negotiations.
 - [./public/offer.html](https://github.com/proseuche/15SQuad/blob/master/public/offer.html)  [./public/offer.js](https://github.com/proseuche/15SQuad/blob/master/public/offer.js)
@@ -21,6 +21,8 @@ To deal with **seasonal leftover workforce**, small business owners nearby unive
 - [./public/mynego.html](https://github.com/proseuche/15SQuad/blob/master/public/mynego.html)  [./public/mynego.js](https://github.com/proseuche/15SQuad/blob/master/public/mynego.js)
   * My Negotiations page that lists my negotiations.
   * By clicking on a negotiation, users can view negotiation details.
+- [./public/table.css](https://github.com/proseuche/15SQuad/blob/master/public/table.css)
+  * Making paging table to index, mypage, and mynego
 
 
 ## Acknowledgements

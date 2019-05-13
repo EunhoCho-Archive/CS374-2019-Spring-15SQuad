@@ -33,7 +33,7 @@ $(document).ready(function() {
         const falseradio = document.getElementById('isNegoFalse');
 
         if(type === 'Enroll'){
-            document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Enrollment";
+            document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>등록";
 
             // Worktime Section
             let newtime = document.createElement('div');
@@ -46,14 +46,14 @@ $(document).ready(function() {
             let daySelection = document.createElement('div');
             daySelection.className = "one field";
             daySelection.innerHTML = "<select class=\"ui fluid dropdown\">\n" +
-                "\t<option value=\"\">Day</option>\n" +
-                "\t<option value=\"Mon\">Mon</option>\n" +
-                "\t<option value=\"Tue\">Tue</option>\n" +
-                "\t<option value=\"Wed\">Wed</option>\n" +
-                "\t<option value=\"Thur\">Thur</option>\n" +
-                "\t<option value=\"Fri\">Fri</option>\n" +
-                "\t<option value=\"Sat\">Sat</option>\n" +
-                "\t<option value=\"Sun\">Sun</option></select>";
+                "\t<option value=\"\">요일</option>\n" +
+                "\t<option value=\"Mon\">월</option>\n" +
+                "\t<option value=\"Tue\">화</option>\n" +
+                "\t<option value=\"Wed\">수</option>\n" +
+                "\t<option value=\"Thur\">목</option>\n" +
+                "\t<option value=\"Fri\">금</option>\n" +
+                "\t<option value=\"Sat\">토</option>\n" +
+                "\t<option value=\"Sun\">일</option></select>";
             newtime.appendChild(daySelection);
 
             let startTimeSelection = document.createElement('div');
@@ -86,7 +86,7 @@ $(document).ready(function() {
             const databaseRef = detailtype + '/' + detailid;
 
             if (type === 'Modify') {
-                document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Modification of Enrollment made by Me";
+                document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>등록한 제안 수정";
                 database.ref(databaseRef).once('value', function (snapshot) {
                     document.getElementById('start_date').setAttribute('value', snapshot.val().start);
                     document.getElementById('end_date').setAttribute('value', snapshot.val().end);
@@ -114,12 +114,12 @@ $(document).ready(function() {
 
                         let nothing = document.createElement('option');
                         nothing.setAttribute('value', '');
-                        nothing.innerText = "Day";
+                        nothing.innerText = "요일";
                         selection.appendChild(nothing);
 
                         let monday = document.createElement('option');
                         monday.setAttribute('value', 'Mon');
-                        monday.innerText = "Mon";
+                        monday.innerText = "월";
                         if (targetDay === 'Mon') {
                             monday.setAttribute('selected', 'selected');
                         }
@@ -127,7 +127,7 @@ $(document).ready(function() {
 
                         let tuesday = document.createElement('option');
                         tuesday.setAttribute('value', 'Tue');
-                        tuesday.innerText = "Tue";
+                        tuesday.innerText = "화";
                         if (targetDay === 'Tue') {
                             tuesday.setAttribute('selected', 'selected');
                         }
@@ -135,7 +135,7 @@ $(document).ready(function() {
 
                         let wednesday = document.createElement('option');
                         wednesday.setAttribute('value', 'Wed');
-                        wednesday.innerText = "Wed";
+                        wednesday.innerText = "수";
                         if (targetDay === 'Wed') {
                             wednesday.setAttribute('selected', 'selected');
                         }
@@ -143,7 +143,7 @@ $(document).ready(function() {
 
                         let thursday = document.createElement('option');
                         thursday.setAttribute('value', 'Thur');
-                        thursday.innerText = "Thur";
+                        thursday.innerText = "목";
                         if (targetDay === 'Thur') {
                             thursday.setAttribute('selected', 'selected');
                         }
@@ -151,7 +151,7 @@ $(document).ready(function() {
 
                         let friday = document.createElement('option');
                         friday.setAttribute('value', 'Fri');
-                        friday.innerText = "Fri";
+                        friday.innerText = "금";
                         if (targetDay === 'Fri') {
                             friday.setAttribute('selected', 'selected');
                         }
@@ -159,7 +159,7 @@ $(document).ready(function() {
 
                         let saturday = document.createElement('option');
                         saturday.setAttribute('value', 'Sat');
-                        saturday.innerText = "Sat";
+                        saturday.innerText = "토";
                         if (targetDay === 'Sat') {
                             saturday.setAttribute('selected', 'selected');
                         }
@@ -167,7 +167,7 @@ $(document).ready(function() {
 
                         let sunday = document.createElement('option');
                         sunday.setAttribute('value', 'Sun');
-                        sunday.innerText = "Sun";
+                        sunday.innerText = "일";
                         if (targetDay === 'Sun') {
                             sunday.setAttribute('selected', 'selected');
                         }
@@ -229,15 +229,15 @@ $(document).ready(function() {
                     if(sessionStorage.getItem('detailtype') === "Negotiations"){
                         offerOwner = snapshot.val().from;
                         if (offerOwner !== "Me"){
-                            document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiate about worker from " + offerOwner + " to Me";
+                            document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>" + offerOwner + " 가게에서 알바를 받아오는 협상";
                         }
                         else{
-                            document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Negotiate about worker from Me to " + snapshot.val().to;
+                            document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>" + snapshot.val().to + " 가게로 알바를 보내는 협상";
                         }
                     }
                     else{
                         offerOwner = snapshot.val().user;
-                        document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiate about worker from " + offerOwner + " to Me";
+                        document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>" + offerOwner + " 가게에서 알바를 받아오는 협상";
                     }
 
                     document.getElementById('start_date').setAttribute('value', snapshot.val().start);
@@ -267,12 +267,12 @@ $(document).ready(function() {
 
                         let nothing = document.createElement('option');
                         nothing.setAttribute('value', '');
-                        nothing.innerText = "Day";
+                        nothing.innerText = "요일";
                         selection.appendChild(nothing);
 
                         let monday = document.createElement('option');
                         monday.setAttribute('value', 'Mon');
-                        monday.innerText = "Mon";
+                        monday.innerText = "월";
                         if (targetDay === 'Mon') {
                             monday.setAttribute('selected', 'selected');
                         }
@@ -280,7 +280,7 @@ $(document).ready(function() {
 
                         let tuesday = document.createElement('option');
                         tuesday.setAttribute('value', 'Tue');
-                        tuesday.innerText = "Tue";
+                        tuesday.innerText = "화";
                         if (targetDay === 'Tue') {
                             tuesday.setAttribute('selected', 'selected');
                         }
@@ -288,7 +288,7 @@ $(document).ready(function() {
 
                         let wednesday = document.createElement('option');
                         wednesday.setAttribute('value', 'Wed');
-                        wednesday.innerText = "Wed";
+                        wednesday.innerText = "수";
                         if (targetDay === 'Wed') {
                             wednesday.setAttribute('selected', 'selected');
                         }
@@ -296,7 +296,7 @@ $(document).ready(function() {
 
                         let thursday = document.createElement('option');
                         thursday.setAttribute('value', 'Thur');
-                        thursday.innerText = "Thur";
+                        thursday.innerText = "목";
                         if (targetDay === 'Thur') {
                             thursday.setAttribute('selected', 'selected');
                         }
@@ -304,7 +304,7 @@ $(document).ready(function() {
 
                         let friday = document.createElement('option');
                         friday.setAttribute('value', 'Fri');
-                        friday.innerText = "Fri";
+                        friday.innerText = "금";
                         if (targetDay === 'Fri') {
                             friday.setAttribute('selected', 'selected');
                         }
@@ -312,7 +312,7 @@ $(document).ready(function() {
 
                         let saturday = document.createElement('option');
                         saturday.setAttribute('value', 'Sat');
-                        saturday.innerText = "Sat";
+                        saturday.innerText = "토";
                         if (targetDay === 'Sat') {
                             saturday.setAttribute('selected', 'selected');
                         }
@@ -320,7 +320,7 @@ $(document).ready(function() {
 
                         let sunday = document.createElement('option');
                         sunday.setAttribute('value', 'Sun');
-                        sunday.innerText = "Sun";
+                        sunday.innerText = "일";
                         if (targetDay === 'Sun') {
                             sunday.setAttribute('selected', 'selected');
                         }
@@ -380,10 +380,10 @@ $(document).ready(function() {
                 database.ref(databaseRef).once('value', function (snapshot) {
                     offerOwner = snapshot.val().from;
                     if (offerOwner !== "Me"){
-                        document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiation Modification about worker from " + offerOwner + " to Me";
+                        document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>" + offerOwner + " 가게에서 알바를 받아오는 협상 수정";
                     }
                     else{
-                        document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Negotiation Modification about worker from Me to " + snapshot.val().to;
+                        document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>" + snapshot.val().to + " 가게로 알바를 보내는 협상 수정";
                     }
 
                     document.getElementById('start_date').setAttribute('value', snapshot.val().start);
@@ -413,12 +413,12 @@ $(document).ready(function() {
 
                         let nothing = document.createElement('option');
                         nothing.setAttribute('value', '');
-                        nothing.innerText = "Day";
+                        nothing.innerText = "요일";
                         selection.appendChild(nothing);
 
                         let monday = document.createElement('option');
                         monday.setAttribute('value', 'Mon');
-                        monday.innerText = "Mon";
+                        monday.innerText = "월";
                         if (targetDay === 'Mon') {
                             monday.setAttribute('selected', 'selected');
                         }
@@ -426,7 +426,7 @@ $(document).ready(function() {
 
                         let tuesday = document.createElement('option');
                         tuesday.setAttribute('value', 'Tue');
-                        tuesday.innerText = "Tue";
+                        tuesday.innerText = "화";
                         if (targetDay === 'Tue') {
                             tuesday.setAttribute('selected', 'selected');
                         }
@@ -434,7 +434,7 @@ $(document).ready(function() {
 
                         let wednesday = document.createElement('option');
                         wednesday.setAttribute('value', 'Wed');
-                        wednesday.innerText = "Wed";
+                        wednesday.innerText = "수";
                         if (targetDay === 'Wed') {
                             wednesday.setAttribute('selected', 'selected');
                         }
@@ -442,7 +442,7 @@ $(document).ready(function() {
 
                         let thursday = document.createElement('option');
                         thursday.setAttribute('value', 'Thur');
-                        thursday.innerText = "Thur";
+                        thursday.innerText = "목";
                         if (targetDay === 'Thur') {
                             thursday.setAttribute('selected', 'selected');
                         }
@@ -450,7 +450,7 @@ $(document).ready(function() {
 
                         let friday = document.createElement('option');
                         friday.setAttribute('value', 'Fri');
-                        friday.innerText = "Fri";
+                        friday.innerText = "금";
                         if (targetDay === 'Fri') {
                             friday.setAttribute('selected', 'selected');
                         }
@@ -458,7 +458,7 @@ $(document).ready(function() {
 
                         let saturday = document.createElement('option');
                         saturday.setAttribute('value', 'Sat');
-                        saturday.innerText = "Sat";
+                        saturday.innerText = "토";
                         if (targetDay === 'Sat') {
                             saturday.setAttribute('selected', 'selected');
                         }
@@ -466,7 +466,7 @@ $(document).ready(function() {
 
                         let sunday = document.createElement('option');
                         sunday.setAttribute('value', 'Sun');
-                        sunday.innerText = "Sun";
+                        sunday.innerText = "일";
                         if (targetDay === 'Sun') {
                             sunday.setAttribute('selected', 'selected');
                         }
@@ -524,7 +524,7 @@ $(document).ready(function() {
                 });
             }
             else {
-                location.href = '/404.html';
+                location.href = '/ko/404.html';
             }
         }
     }
@@ -592,14 +592,14 @@ $(document).ready(function() {
         let daySelection = document.createElement('div');
         daySelection.className = "one field";
         daySelection.innerHTML = "<select class=\"ui fluid dropdown\">\n" +
-            "\t<option value=\"\">Day</option>\n" +
-            "\t<option value=\"Mon\">Mon</option>\n" +
-            "\t<option value=\"Tue\">Tue</option>\n" +
-            "\t<option value=\"Wed\">Wed</option>\n" +
-            "\t<option value=\"Thur\">Thur</option>\n" +
-            "\t<option value=\"Fri\">Fri</option>\n" +
-            "\t<option value=\"Sat\">Sat</option>\n" +
-            "\t<option value=\"Sun\">Sun</option></select>";
+            "\t<option value=\"\">요일</option>\n" +
+            "\t<option value=\"Mon\">월</option>\n" +
+            "\t<option value=\"Tue\">화</option>\n" +
+            "\t<option value=\"Wed\">수</option>\n" +
+            "\t<option value=\"Thur\">목</option>\n" +
+            "\t<option value=\"Fri\">금</option>\n" +
+            "\t<option value=\"Sat\">토</option>\n" +
+            "\t<option value=\"Sun\">일</option></select>";
         newtime.appendChild(daySelection);
 
         let startTimeSelection = document.createElement('div');
@@ -639,16 +639,16 @@ $(document).ready(function() {
         let startDate = document.getElementById('start_date').value;
         if(startDate === ""){
             isValid = false;
-            errorlist.push('Start workday is blank');
+            errorlist.push('근무 시작일이 비어있습니다.');
         }
         let endDate = document.getElementById('end_date').value;
         if(endDate === ""){
             isValid = false;
-            errorlist.push('End workday is blank');
+            errorlist.push('근무 종료일이 비어있습니다.');
         }
         if (startDate !== "" && endDate !== "" && startDate > endDate){
             isValid = false;
-            errorlist.push('End workday is faster than start workday');
+            errorlist.push('근무 종료일이 근무 시작일보다 빠릅니다.');
         }
 
 
@@ -661,33 +661,11 @@ $(document).ready(function() {
 
             if(day === "" || start === "" || end === ""){
                 isValid = false;
-                if (i % 10 === 0 && i % 100 !== 10){
-                    errorlist.push((i + 1) + 'st worktime is blank');
-                }
-                else if (i % 10 === 1 && i % 100 !== 11){
-                    errorlist.push((i + 1) + 'nd worktime is blank');
-                }
-                else if (i % 10 === 2 && i % 100 !== 12){
-                    errorlist.push((i + 1) + 'rd worktime is blank');
-                }
-                else{
-                    errorlist.push((i + 1) + 'th worktime is blank');
-                }
+                errorlist.push((i + 1) + '번째 근무 시간이 비어있습니다.');
             }
             if(start !== "" && end !== "" && start >= end){
                 isValid = false;
-                if (i % 10 === 0 && i % 100 !== 10){
-                    errorlist.push('End time of ' + (i + 1) + 'st worktime is faster than start time');
-                }
-                else if (i % 10 === 1 && i % 100 !== 11){
-                    errorlist.push('End time of ' + (i + 1) + 'nd worktime is faster than start time');
-                }
-                else if (i % 10 === 2 && i % 100 !== 12){
-                    errorlist.push('End time of ' + (i + 1) + 'rd worktime is faster than start time');
-                }
-                else{
-                    errorlist.push('End time of ' + (i + 1) + 'th worktime is faster than start time');
-                }
+                errorlist.push('End time of ' + (i + 1) + '번째 근무 시간의 시작 시간보다 종료 시간이 더 빠릅니다.');
             }
         }
 
@@ -725,7 +703,7 @@ $(document).ready(function() {
             }
             sessionStorage.setItem('times', JSON.stringify(times));
 
-            location.href = '/confirm.html';
+            location.href = '/ko/confirm.html';
         }
         else{
             let form = document.getElementById('form');
@@ -735,7 +713,7 @@ $(document).ready(function() {
 
             let messageHeader = document.createElement('div');
             messageHeader.className = "header";
-            messageHeader.innerText = "There were some errors with your submission";
+            messageHeader.innerText = "현재 제출하시려는 페이지에 다음과 같은 오류가 있습니다.";
             message.appendChild(messageHeader);
 
             let messagelist = document.createElement('ul');
@@ -754,7 +732,7 @@ $(document).ready(function() {
 
     // Section for Cancel button
     $(document).on('click', "#cancel", function(){
-        let reallycancel = confirm('Do you really want to cancel and go back?');
+        let reallycancel = confirm('취소하고 이전 페이지로 돌아가시겠습니까?');
         if(reallycancel){
             history.back();
         }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>비즈몬</title>
+    <link rel="stylesheet" type="text/css" href="../semantic.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="../semantic.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script src='./engkor.js'></script>
+</head>
+<body>
+<!-- Fixed Header -->
+<div class="ui massive yellow inverted menu">
+    <div class="left menu">
+        <a onclick="location.href='/ko/'" class="item">
+            <img class="ui image" src="./BizmonLogo.png">
+        </a>
+    </div>
+    <div class="right menu">
+        <a onclick="sessionStorage.setItem('type','Enroll');location.href='/ko/offer.html'" class="item">
+            <div class="ui small black header">
+                <i class="calendar plus icon"></i>
+                등록
+            </div>
+        </a>
+        <a onclick="location.href='/ko/mypage.html'" class="item">
+            <div class="ui small black header">
+                <i class="user icon"></i>
+                내 공유 목록
+            </div>
+        </a>
+        <a onclick="location.href='/ko/mynego.html'" class="item">
+            <div class="ui small black header">
+                <i class="exchange icon"></i>
+                내 협상 목록
+            </div>
+        </a>
+    </div>
+</div>
+<!-- ------------------- -->
+<div class="ui grid">
+    <div class="two wide column"></div>
+    <div class="twelve wide column">
+        <div class="ui error message">
+            <div class="header">
+                <h1>404 Page Not Found</h1>
+            </div>
+            <ul class="list">
+                <li>이 웹사이트에서 요청하신 파일을 찾을 수 없습니다. URL을 확인하시고 다시 시도해주시기 바랍니다.</li>
+            </ul>
+        </div>
+        <div class="ui fluid buttons">
+            <button onclick="history.back()" class="ui yellow labeled icon button">
+                <i class="left arrow icon"></i>
+                뒤로 가기
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
