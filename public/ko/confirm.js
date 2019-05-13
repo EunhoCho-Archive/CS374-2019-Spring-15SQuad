@@ -72,7 +72,7 @@ $(document).ready(function() {
         let times = JSON.parse(sessionStorage.getItem('times'));
 
         if(type === "Enroll") {
-            let reallysubmit = confirm('Do you really want to enroll like this?');
+            let reallysubmit = confirm('이대로 등록하시겠습니까?');
             if (reallysubmit) {
                 let enrollKey = database.ref('Offers').push();
                 enrollKey.set({
@@ -100,7 +100,7 @@ $(document).ready(function() {
             }
         }
         else if(type === "Modify"){
-            let reallysubmit = confirm('Do you really want to modify like this?');
+            let reallysubmit = confirm('이대로 수정하시겠습니까?');
             if(reallysubmit){
                 const offerid = sessionStorage.getItem('detailid');
                 database.ref('Offers/' + offerid).set({
@@ -129,7 +129,7 @@ $(document).ready(function() {
             }
         }
         else if(type === "Negotiate"){
-            let reallysubmit = confirm('Do you really want to negotiate like this?');
+            let reallysubmit = confirm('이대로 협상을 보내시겠습니까?');
             if(reallysubmit){
                 const from = sessionStorage.getItem('from');
                 const to = sessionStorage.getItem('to');
@@ -163,7 +163,7 @@ $(document).ready(function() {
             }
         }
         else if(type === "NegoModify"){
-            let reallysubmit = confirm('Do you really want to modify negotiation like this?');
+            let reallysubmit = confirm('이대로 협상을 수정하시겠습니까?');
             if(reallysubmit){
                 const from = sessionStorage.getItem('from');
                 const to = sessionStorage.getItem('to');

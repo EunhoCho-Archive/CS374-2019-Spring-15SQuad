@@ -51,7 +51,7 @@ $(document).ready(function() {
 
                 let daySelection = document.createElement('div');
                 daySelection.className = "one wide field";
-                daySelection.innerHTML = "<h3>" + data.val().day + ".</h3>";
+                daySelection.innerHTML = "<h3>" + weekEngKor(data.val().day) + ".</h3>";
                 newtime.appendChild(daySelection);
 
                 let startTimeSelection = document.createElement('div');
@@ -84,15 +84,15 @@ $(document).ready(function() {
             secondButton.className = "ui yellow button";
 
             if (userid === snapshot.val().user){
-                firstButton.innerText = "Delete";
+                firstButton.innerText = "삭제";
                 firstButton.setAttribute('id', 'delete');
-                secondButton.innerText = "Modify";
+                secondButton.innerText = "수정";
                 secondButton.setAttribute('id', 'modify');
             }
             else{
-                firstButton.innerText = "Accept";
+                firstButton.innerText = "수락";
                 firstButton.setAttribute('id', 'accept');
-                secondButton.innerText = "Negotiate";
+                secondButton.innerText = "협상";
                 secondButton.setAttribute('id', 'negotiate');
                 if(isPossible === "false" || isPossible === false){
                     secondButton.className = "ui black button";
@@ -112,9 +112,9 @@ $(document).ready(function() {
             const offerOwner = snapshot.val().from;
 
             if (offerOwner !== "Me") {
-                document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>Negotiation about worker from " + offerOwner + " to " + snapshot.val().to;
+                document.getElementById('name').innerHTML = "<i class=\"icon sign-in\"></i>" + offerOwner + " 가게에서 알바를 받아오는 협상";
             } else {
-                document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>Negotiation about worker from " + offerOwner + " to " + snapshot.val().to;
+                document.getElementById('name').innerHTML = "<i class=\"icon sign-out\"></i>" + snapshot.val().to + " 가게에서 알바를 받아오는 협상";
             }
 
             let start_date = snapshot.val().start.split('-');
