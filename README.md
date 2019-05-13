@@ -23,6 +23,8 @@ To deal with **seasonal leftover workforce**, small business owners nearby unive
   * By clicking on a negotiation, users can view negotiation details.
 - [./public/table.css](https://github.com/proseuche/15SQuad/blob/master/public/table.css)
   * Making paging table to index, mypage, and mynego
+- /public/ko/*
+  * Korean version for testers.
 
 
 ## Acknowledgements
