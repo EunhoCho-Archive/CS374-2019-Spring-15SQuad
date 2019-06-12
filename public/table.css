@@ -1,3 +1,15 @@
+body{
+  background: #F8F8F8 !important;
+}
+
+#table_title {
+  padding-bottom: 15px;
+}
+
+#table_header {
+  color: #FD8905;
+}
+
 .elem {
   /*font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.28571429em;*/
