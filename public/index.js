@@ -46,7 +46,7 @@ $(document).ready(function() {
 	    	entries_div.className = "entries";
 	    	$("#table_header").after(entries_div);
 
-	    	var hover_index = 1;
+	    	var hover_index = 2;
 	    	for(var i=(my_offer_keys.length-1-(4*n)); i>bottom; i--){
 				var entry = value[my_offer_keys[i]];
 
